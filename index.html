@@ -39,18 +39,25 @@
     }
 
     .photo-wrapper {
-      text-align: center; /* Center text under each photo */
+      text-align: center; /* text under each photo */
     }
 
     .photo {
       width: 200px;         
       height: 200px;       
-      object-fit: cover;    /* Crop the image to fit the circle */
-      border-radius: 50%;   /* Make the image circular */
+      object-fit: cover;    
+      border-radius: 50%;   /* circular */
       border: 3px solid #327e45; /*  border around the circle */
       display: block;
       margin: 0 auto 10px;  
     }
+
+    .contact {
+        color: #000000;
+        text-decoration: none;
+        margin-bottom: 40px;
+    }
+
   </style>
 </head>
 <body>
@@ -68,7 +75,6 @@
         </p>
 
     <div class="photos">
-        <!-- First Photo Wrapper -->
         <div class="photo-wrapper">
             <img class="photo" src="jmacdonagh.jpg" alt="Photo 1">
             <p class="description">Juan Mac Donagh, co-fundador de la AJI, es Licenciado en Biotecnología y Biología Molecular de la UNLP, becario doctoral CONICET, docente en la UNLP y estudiante de doctorado en SBG - UNQ.</p>
@@ -79,6 +85,10 @@
             <p class="description">Tomás Peters, co-fundador de la AJI, es Licenciado en Biotecnología y Biología Molecular de la UNLP,  becario doctoral CONICET, docente en la UNLP y estudiante de doctorado en LABODETOMI - FIL -UBA.</p>
         </div>
       </div>
+
+      <p class="contact">
+        Contacto: mail1 mail2
+    </p>
   
 
     </div>
