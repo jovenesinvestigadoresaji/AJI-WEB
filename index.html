@@ -1,69 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Centered Page Example</title>
-    <style>
-        /* Center all content and set some basic styling */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        
-        .container {
-            margin: 50px auto;
-            width: 80%;
-            max-width: 800px;
-        }
+  <meta charset="UTF-8">
+  <title>Circular Photos Side by Side</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;  /* Center text elements in the body */
+    }
 
-        .logo {
-            max-width: 200px; /* Adjust as needed */
-            display: block;
-            margin: 0 auto;
-        }
+    .container {
+      width: 80%;
+      max-width: 800px;
+      margin: 50px auto;
+    }
 
-        .photo-section {
-            margin-top: 40px;
-        }
+    /* Center the logo */
+    .logo {
+      max-width: 200px;
+      display: block;
+      margin: 0 auto 20px auto;
+    }
 
-        .photo {
-            max-width: 300px;
-            display: block;
-            margin: 0 auto 10px auto;
-        }
+    .description {
+      color: #555;
+      margin-bottom: 40px;
+    }
 
-        .description {
-            color: #555;
-            margin-bottom: 30px;
-        }
-    </style>
+    /* A Flex container to place photos side by side */
+    .photos {
+      display: flex;
+      justify-content: center; /* Horizontally center the photos */
+      gap: 40px;               /* Space between photos */
+      margin-bottom: 40px;     /* Space below the photos section */
+    }
+
+    .photo-wrapper {
+      text-align: center; /* Center text under each photo */
+    }
+
+    .photo {
+      width: 200px;         /* Fixed width */
+      height: 200px;        /* Fixed height */
+      object-fit: cover;    /* Crop the image to fit the circle */
+      border-radius: 50%;   /* Make the image circular */
+      border: 3px solid #000; /* Add a border around the circle */
+      display: block;
+      margin: 0 auto 10px;  /* Center the image in its parent */
+    }
+  </style>
 </head>
 <body>
 
     <div class="container">
 
-        <!-- Centered Logo -->
+
         <img class="logo" src="bitmap.svg" alt="Logo">
 
-        <!-- Main Description -->
+       
         <p class="description">
-            This is a small description about your webpage or organization. 
-            It can be a brief introduction or a welcome message.
+            La Asociacion de Jóvenes Invsestigadores (AJI) es una organización sin fines de lucro que busca promover la investigación científica en jóvenes 
+            estudiantes de doctorado, postdocorado e investigadores jovenes de Argentina.
+            Pronto tendremos más infromación!
         </p>
 
-        <!-- First Photo -->
-        <div class="photo-section">
-            <img class="photo" src="bitmap.svg" alt="Photo 1">
-            <p class="description">Short description of Photo 1.</p>
+    <div class="photos">
+        <!-- First Photo Wrapper -->
+        <div class="photo-wrapper">
+            <img class="photo" src="jmacdonagh.jpg" alt="Photo 1">
+            <p class="description">Juan Mac Donagh, fundador de la AJI, becario doctoral CONICET, docente en la UNLP y estudiante de doctorado en SBG - UNQ.</p>
         </div>
-
-        <!-- Second Photo -->
-        <div class="photo-section">
-            <img class="photo" src="bitmap.svg" alt="Photo 2">
-            <p class="description">Short description of Photo 2.</p>
+  
+        <div class="photo-wrapper">
+            <img class="photo" src="tpeters.jpeg" alt="Photo 2">
+            <p class="description">Tomás Peters, fundador de la AJI,, becario doctoral CONICET, docente en la UNLP y estudiante de doctorado en LABODETOMI - FIL -UBA.</p>
         </div>
+      </div>
+  
 
     </div>
 
