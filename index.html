@@ -32,12 +32,12 @@
       color: #000000;
       margin-bottom: 40px;
     }
-/* cambio el flex por un grid */
+    /* cambio el flex por un grid */
     .photos{
-  display:grid;
-  grid-template-columns:repeat(2,1fr); /* 2 columns */
-  gap:40px;                            
-}
+      display:grid;
+      grid-template-columns:repeat(2,1fr); /* 2 columns */
+      gap:40px;                            
+    }
 
     .photo-wrapper {
       text-align: center; /* text under each photo */
@@ -59,18 +59,13 @@
         margin-bottom: 60px;
     }
 
-  </style>
-
-<style>
-  .photo-wrapper{                /* start hidden & offset */
-    opacity:0;
-    transform:translateX(-80px);
-    transition:opacity .6s ease, transform .6s ease;
-  }
-  .photo-wrapper.show{           /* revealed state */
-    opacity:1;
-    transform:translateX(0);
-  }
+    .photo-wrapper{
+      opacity:0;                      /* start transparent   */
+      transition:opacity .6s ease;    /* smooth fade         */
+    }
+    .photo-wrapper.show{
+      opacity:1;                      /* fully visible       */
+    }
   </style>
   
   <script defer>
@@ -82,7 +77,6 @@
     },{threshold:0.3});
     cards.forEach(c=>io.observe(c));
   </script>
-</body>
 
 </head>
 <body>
