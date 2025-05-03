@@ -73,17 +73,17 @@
   }
   </style>
   
-  <script>
-  const cards = document.querySelectorAll('.photo-wrapper');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){ e.target.classList.add('show'); }
-    });
-  },{threshold:0.3});            // fire when 30 % visible
-  
-  cards.forEach(c=>io.observe(c));
+  <script defer>
+    const cards = document.querySelectorAll('.photo-wrapper');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if (e.isIntersecting) e.target.classList.add('show');
+      });
+    },{threshold:0.3});
+    cards.forEach(c=>io.observe(c));
   </script>
-  
+</body>
+
 </head>
 <body>
 
