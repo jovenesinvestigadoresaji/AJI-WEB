@@ -32,14 +32,12 @@
       color: #000000;
       margin-bottom: 40px;
     }
-
-    /* A Flex container to place photos side by side */
-    .photos {
-      display: flex;
-      justify-content: center; /* Horizontally center the photos */
-      gap: 40px;               /* Space between photos */
-      margin-bottom: 40px;     /* Space below the photos section */
-    }
+/* cambio el flex por un grid */
+    .photos{
+  display:grid;
+  grid-template-columns:repeat(2,1fr); /* 2 columns */
+  gap:40px;                            
+}
 
     .photo-wrapper {
       text-align: center; /* text under each photo */
@@ -90,8 +88,6 @@
             <img class="photo" src="jmacdonagh.jpg" alt="Photo 1">
             <p class="description">Juan Mac Donagh, vicepresidente co-fundador y presidente de la AJI, es Licenciado en Biotecnología y Biología Molecular de la UNLP, becario doctoral CONICET, docente en la UNLP y estudiante de doctorado en Structural Bioinformatics Group - UNQ.</p>
         </div>
-
-        <br>
         
         <div class="photo-wrapper">
           <img class="photo" src="Joselina.jpeg" alt="Photo 3">
