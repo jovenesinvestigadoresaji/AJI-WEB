@@ -35,8 +35,13 @@
     /* cambio el flex por un grid */
     .photos{
       display:grid;
-      grid-template-columns:repeat(2,1fr); /* 2 columns */
-      gap:40px;                            
+      grid-template-columns:repeat(4,1fr);  /* 4 equal tracks */
+      gap:40px;
+    }
+
+    /* first two items → take 2 columns each */
+    .photos .photo-wrapper:nth-child(-n+2){
+      grid-column:span 2;
     }
 
     .photo-wrapper {
@@ -69,6 +74,7 @@
   </style>
   
 </head>
+
 <body>
 
     <div class="container">
@@ -110,20 +116,20 @@
   
 
     </div>
+</body>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const cards = document.querySelectorAll('.photo-wrapper');
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.photo-wrapper');
       
-        const io = new IntersectionObserver(entries => {
-          entries.forEach(e => {
-            if (e.isIntersecting) e.target.classList.add('show');
-          });
-        }, { threshold: 0.3 });
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.classList.add('show');
+        });
+      }, { threshold: 0.3 });
       
-        cards.forEach(c => io.observe(c));
-      });
-      </script>
-    
+      cards.forEach(c => io.observe(c));
+    });
+  </script>
 </body>
 </html>
