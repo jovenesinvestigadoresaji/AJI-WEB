@@ -68,16 +68,6 @@
     }
   </style>
   
-  <script defer>
-    const cards = document.querySelectorAll('.photo-wrapper');
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if (e.isIntersecting) e.target.classList.add('show');
-      });
-    },{threshold:0.3});
-    cards.forEach(c=>io.observe(c));
-  </script>
-
 </head>
 <body>
 
@@ -121,5 +111,19 @@
 
     </div>
 
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('.photo-wrapper');
+      
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(e => {
+            if (e.isIntersecting) e.target.classList.add('show');
+          });
+        }, { threshold: 0.3 });
+      
+        cards.forEach(c => io.observe(c));
+      });
+      </script>
+    
 </body>
 </html>
