@@ -60,6 +60,30 @@
     }
 
   </style>
+
+<style>
+  .photo-wrapper{                /* start hidden & offset */
+    opacity:0;
+    transform:translateX(-80px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .photo-wrapper.show{           /* revealed state */
+    opacity:1;
+    transform:translateX(0);
+  }
+  </style>
+  
+  <script>
+  const cards = document.querySelectorAll('.photo-wrapper');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('show'); }
+    });
+  },{threshold:0.3});            // fire when 30 % visible
+  
+  cards.forEach(c=>io.observe(c));
+  </script>
+  
 </head>
 <body>
 
@@ -88,7 +112,7 @@
             <img class="photo" src="jmacdonagh.jpg" alt="Photo 1">
             <p class="description">Juan Mac Donagh, vicepresidente co-fundador y presidente de la AJI, es Licenciado en Biotecnología y Biología Molecular de la UNLP, becario doctoral CONICET, docente en la UNLP y estudiante de doctorado en Structural Bioinformatics Group - UNQ.</p>
         </div>
-        
+
         <div class="photo-wrapper">
           <img class="photo" src="Joselina.jpeg" alt="Photo 3">
           <p class="description">Joselina Berti, miembro del comité científico de la AJI, es Licenciada en Biotecnología de UADE, becaria doctoral CONICET y estudiante de doctorado en el Laboratorio de Genética del Desarrollo Neural FIL - FCEN UBA.</p>
