@@ -4,11 +4,18 @@
   <meta charset="UTF-8">
   <title>Asociacion de Jovenes Investigadores</title>
   <link rel="icon" href="bitmap.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 
   <style>
+
+        :root {
+      --green: #327e45;
+      --orange: #ef770d;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;      
       margin: 0;
       padding: 0;
       text-align: center;  /* Center text elements in the body */
@@ -48,37 +55,67 @@
       text-align: center; /* text under each photo */
     }
 
+    .photos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+
+    .photos .photo-wrapper:nth-child(-n+2) {
+      grid-column: span 2;
+    }
+
+    .photo-wrapper {
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .photo-wrapper.show {
+      opacity: 1;
+    }
+
     .photo {
-      width: 200px;         
-      height: 200px;       
-      object-fit: cover;    
-      border-radius: 50%;   /* circular */
-      border: 3px solid #327e45; /*  border around the circle */
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--green);
       display: block;
-      margin: 0 auto 10px;  
+      margin: 0 auto 10px;
+    }
+
+    /* Second row  orange */
+    .photo-wrapper:nth-child(n+5):nth-child(-n+8) .photo {
+      border-color: var(--orange);
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin: 60px 0 20px;
+      color: #DD7373;
+      text-align: center;
+      font-weight: 600;
     }
 
     .contact {
-        color: #000000;
-        text-decoration: none;
-        margin-bottom: 60px;
+      color: #000000;
+      text-decoration: none;
+      margin-bottom: 60px;
     }
 
-    .photo-wrapper{
-      opacity:0;                      /* start transparent   */
-      transition:opacity .6s ease;    /* smooth fade         */
-    }
-    .photo-wrapper.show{
-      opacity:1;                      /* fully visible       */
-    }
-
-    .section-title{
-      font-size:1.6rem;      /* adjust to taste */
-      margin:60px 0 20px;    /* space above/below */
-      color:#DD7373;         /* same green you use on borders */
-      text-align:center;
+    @media (max-width: 768px) {
+      .photos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
     }
 
+    @media (max-width: 480px) {
+      .photos {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
   
 </head>
@@ -90,21 +127,21 @@
     <img class="logo" src="bitmap.svg" alt="Logo">
 
     <p class="description">
-        La Agrupación de Jóvenes Investigadores (AJI) es una organización sin fines de lucro que busca generar un espacio de charla, reflexión y discusión para
+        La<strong> Agrupación de Jóvenes Investigadores (AJI)</strong> es una organización sin fines de lucro que busca generar un espacio de charla, reflexión y discusión para
         estudiantes de doctorado, postdoctorado e investigadores jóvenes en Argentina, con un formato de reuniones anuales.
     </p>
 
     <h2 class="section-title">Misión</h2>
 
     <p class="description">
-        Nuestra misión se basa en una iniciativa inédita que busca consolidar un espacio propio, horizontal y federal para investigadores/as en etapas de formación: becarios/as doctorales, posdoctorales, investigadores/as jóvenes y estudiantes avanzados/as de grado de todo el país. 
+        Nuestra misión se basa en una iniciativa inédita que busca consolidar un espacio <strong>propio, horizontal y federal</strong> para investigadores/as en etapas de formación: becarios/as doctorales, posdoctorales, investigadores/as jóvenes y estudiantes avanzados/as de grado de todo el país. 
         A diferencia de otros eventos académicos tradicionales, buscamos poner el énfasis no solo en la presentación de resultados científicos, sino también en el intercambio de técnicas experimentales, herramientas de trabajo, dificultades comunes y aprendizajes cotidianos que forman parte esencial del hacer ciencia.
     </p>
 
     <p class="description">
         ¡Pronto más información!
     </p>
-        </p>
+      
 
         <br>
         <br>
