@@ -2,14 +2,19 @@
 <html>
 <head>
   <meta charset="UTF-8">
+<<<<<<< HEAD
   <title>Asociacion de Jovenes Investigadores</title>
   <link rel="icon" href="logo_loli.png" type="image/png">
+=======
+  <title>Agrupación de Jovenes Investigadores</title>
+  <link rel="icon" href="bitmap.png" type="image/png">
+>>>>>>> 759dea6f9acde8af427f1e9a0e96bfdc97ab06ac
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 
   <style>
 
-        :root {
+      :root {
       --green: #327e45;
       --orange: #ef770d;
     }
@@ -144,6 +149,46 @@
         grid-template-columns: 1fr;
       }
     }
+
+  #floating-logo {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    /* width: 72px;
+    height: 72px; */
+    z-index: 9999;
+    /* display: grid;
+    place-items: center;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    text-decoration: none; */
+  }
+  #floating-logo img {
+    width: 100px;
+    height: auto;
+    /* height: 60%; */
+    object-fit: contain;
+    transition: transform 0.2s ease;
+  }
+  #floating-logo:hover img { transform: rotate(3deg) scale(1.03); }
+
+  /* Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    #floating-logo, #floating-logo img { transition: none !important; }
+  }
+
+  /* Avoid overlapping bottom bars on mobile */
+  @supports (padding: max(0px)) {
+    #floating-logo { bottom: max(16px, env(safe-area-inset-bottom)); }
+  }
+
+
+
+
+
+
   </style>
 
 </head>
@@ -277,7 +322,7 @@
       <h2 class="section-title">Codigo de conducta</h2>
       <p class="Codigo_de_conducta">
         La AJI se respalda en un código de conducta con especial énfasis en el respeto y el respaldo mutuo: 
-        <a class="event-location", href="https://docs.google.com/document/d/1GZi98oojkXhOoQ0TF-7YWduQnxWehQCelQayEdQl4Oc/edit?usp=sharing"
+        <a class="event-location" href="https://docs.google.com/document/d/1GZi98oojkXhOoQ0TF-7YWduQnxWehQCelQayEdQl4Oc/edit?usp=sharing"
            target="_blank" rel="noopener noreferrer"> <br> disponible aquí</a>
       </p>
 
@@ -306,20 +351,59 @@
 
 
     </div>
-</body>
+
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfrn-Ay62YDFT1W4liZnXIJ0cTZPDr5O24-Wieaemc2Z2nRHQ/viewform"
+    id="floating-logo"
+    aria-label="Formulario de inscripción"
+    target="_blank"
+    rel="noopener noreferrer">
+    <img src="logo_loli.png" alt="AJI logo">
+  </a>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const cards = document.querySelectorAll('.photo-wrapper');
-      
       const io = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) e.target.classList.add('show');
-        });
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
       }, { threshold: 0.3 });
-      
       cards.forEach(c => io.observe(c));
     });
+  </script>
+
+  <script>
+    (function () {
+      // Respect reduced motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      function init() {
+        const img = document.querySelector('#floating-logo img');
+        if (!img) return;
+        const maxRotate = 720; // total degrees by page bottom
+        let ticking = false;
+
+        function onScroll() {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(() => {
+            const doc = document.documentElement;
+            const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
+            const progress = Math.min(1, window.scrollY / maxScroll);
+            img.style.rotate = (progress * maxRotate) + 'deg';
+            ticking = false;
+          });
+        }
+
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      }
+
+      // Ensure the logo exists before running
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
   </script>
 </body>
 </html>
