@@ -110,6 +110,24 @@
       border-color: var(--orange);
     }
 
+
+    .sponsor-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;               
+      flex-wrap: wrap;       
+      margin: 30px auto;
+    }
+
+    .sponsor-logos img {
+      max-height: 80px;       
+      width: auto;
+      object-fit: contain;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+
     .Codigo_de_conducta, .Sponsors {
       color: #000000;
       margin-bottom: 40px;
@@ -501,13 +519,23 @@
       <br>
       <br>
       <br>
-      <h2 class="section-title">Financiamiento</h2>
-      <p class="Sponsors">
-        Ya contamos con algunos sponsors, pero todavía podes sumarte!<br>
-        Si deseas colaborar con la AJI, no dudes en contactarnos. <br>
-        La AJI es una organización sin fines de lucro y no cuenta con financiamiento interno. <br>
-      </p>
-      
+<h2 class="section-title">Financiamiento</h2>
+<p class="Sponsors">
+  <br>
+  Si deseas colaborar con la AJI, no dudes en contactarnos. <br>
+  La AJI es una organización sin fines de lucro y no cuenta con financiamiento interno. <br>
+  <br>
+  Conocé a nuestros sponsors: <br>
+</p>
+
+<div class="sponsor-logos">
+  <img src="sponsor_bioing.png" alt="Sponsor 1">
+  <img src="sponsor_edaci.png" alt="Sponsor 2">
+  <img src="sponsor_onelab.png" alt="Sponsor 3">
+  <img src="sponsor_inbio.png" alt="Sponsor 4">
+  <img src="sponsor_gato.png" alt="Sponsor 5">
+  
+</div>
 
       <br>
       <h2 class="section-title">Redes y contacto</h2>
@@ -792,7 +820,6 @@
 
 </body>
 </html>
-
 
 
 
