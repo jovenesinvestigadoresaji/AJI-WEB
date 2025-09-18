@@ -111,21 +111,35 @@
     }
 
 
-    .sponsor-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;               
-      flex-wrap: wrap;       
-      margin: 30px auto;
-    }
 
-    .sponsor-logos img {
-      max-height: 80px;       
-      width: auto;
-      object-fit: contain;
-      transition: transform 0.2s ease, filter 0.2s ease;
-    }
+.sponsor-logos img{
+  max-height: 80px;
+  width: auto;
+  object-fit: contain;
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.sponsor-logos img[src*="onelab"]{
+  transform: translateY(-25px); /* probá -4px a -10px según veas */
+}
+.sponsor-logos img[src*="onelab"],
+.sponsor-logos img[src*="tlab"]{
+  max-height: 56px;   
+}
+
+.sponsor-logos img[src*="bioing"],
+.sponsor-logos img[src*="fil"]{
+  max-height: 110px;  /* probá 100–120 */
+}
+
+@media (max-width: 480px){
+  .sponsor-logos img{ max-height: 64px; }
+  .sponsor-logos img[src*="onelab"],
+  .sponsor-logos img[src*="tlab"]{ max-height: 48px; }
+  .sponsor-logos img[src*="bioing"],
+  .sponsor-logos img[src*="fil"]{ max-height: 90px; }
+}
+
 
 
     .Codigo_de_conducta, .Sponsors {
@@ -530,10 +544,14 @@
 
 <div class="sponsor-logos">
   <img src="sponsor_bioing.png" alt="Sponsor 1">
-  <img src="sponsor_edaci.png" alt="Sponsor 2">
+  <img src="sponsor_fil.png" alt="Sponsor 2">
   <img src="sponsor_onelab.png" alt="Sponsor 3">
-  <img src="sponsor_inbio.png" alt="Sponsor 4">
-  <img src="sponsor_gato.png" alt="Sponsor 5">
+  <br>
+  <img src="sponsor_tlab.png" alt="Sponsor 4">
+  <img src="sponsor_edaci.png" alt="Sponsor 5">
+  <br>
+  <img src="sponsor_inbio.png" alt="Sponsor 6">
+  <img src="sponsor_gato.png" alt="Sponsor 7">
   
 </div>
 
