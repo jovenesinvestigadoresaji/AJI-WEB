@@ -212,12 +212,11 @@
   }
   #floating-logo:hover img { transform: rotate(3deg) scale(1.03); }
 
-  /* Respect users who prefer reduced motion */
   @media (prefers-reduced-motion: reduce) {
     #floating-logo, #floating-logo img { transition: none !important; }
   }
 
-  /* Avoid overlapping bottom bars on mobile */
+  
   @supports (padding: max(0px)) {
     #floating-logo { bottom: max(16px, env(safe-area-inset-bottom)); }
   }
@@ -229,7 +228,7 @@
 
   @keyframes pulse {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.08); } /* 8% bigger at peak */
+    50% { transform: scale(1.08); } 
   }
 
   @keyframes logoPop {
@@ -244,7 +243,30 @@
     animation: logoPop 0.57s cubic-bezier(.68,-0.55,.27,1.55);
   }
 
-    /* Featured speakers */
+  .schedule {
+  margin: 40px auto 0 auto;
+  display: grid;
+  place-items: center;
+}
+.schedule img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border: 12px solid rgba(50,126,69,0.2); 
+}
+.schedule .actions {
+  margin-top: 10px;
+  text-align: center;
+}
+.schedule .actions a {
+  font-weight: 600;
+  text-decoration: underline;
+  color: inherit;
+}
+    
   .speakers-list {
     list-style: none;
     padding: 0;
@@ -258,7 +280,7 @@
     display: flex;
     align-items: center;
     gap: 18px;
-    text-align: left;               /* text aligns nicely next to the photo */
+    text-align: left;              
     padding: 12px 14px;
     border-radius: 16px;
     background: rgba(230, 230, 225, 0.85);    
@@ -276,24 +298,24 @@
     height: 110px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--navy_blue); /* matches your grid photos */
+    border: 3px solid var(--navy_blue); 
     flex: 0 0 auto;
   }
 
   .speaker-avatar[src*="lchemes.jpg"] {
-    object-position: 80% 75%; /* 40% horizontal, 35% vertical */
+    object-position: 80% 75%; 
   }
 
   .speaker-avatar[src*="awaisman.jfif"] {
-    object-position: 8% 10%; /* 40% horizontal, 35% vertical */
+    object-position: 8% 10%; 
   }
 
   .speaker-text a {
-    color: inherit;            /* same as normal text */
-    text-decoration: none;     /* remove underline */
+    color: inherit;            
+    text-decoration: none;     
   }
   .speaker-text a:hover {
-    text-decoration: underline; /* subtle hover cue */
+    text-decoration: underline; 
   }
   .speaker-text strong {
     display: inline-block;
@@ -308,12 +330,23 @@
   .speaker-centered {
     flex-direction: column;
     text-align: center;
-    max-width: 600px; /* optional: keeps it from stretching too wide */
-    margin: 0 auto;   /* centers horizontally in its container */
+    max-width: 600px; 
+    margin: 0 auto;   
   }
 
   .speaker-centered .speaker-avatar {
     margin-bottom: 12px;
+  }
+
+  .sponsor-logos a{
+    display: inline-block;
+    text-decoration: none;
+    line-height: 0;       
+  }
+
+ 
+  .sponsor-logos a img{
+    display: block;           
   }
   .tictactoe .ttt-wrap{
     max-width: 420px;
@@ -378,12 +411,20 @@
         </a>
         <br>
         <br>
-        <a class="event-location" href="https://docs.google.com/forms/d/e/1FAIpQLSfrn-Ay62YDFT1W4liZnXIJ0cTZPDr5O24-Wieaemc2Z2nRHQ/viewform" target="_blank" rel="noopener noreferrer">
+        <a class="event-location" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
             Formulario de inscripción
         </a>
     
     </p>
 
+    <section class="schedule" id="cronograma">
+      <img src="cronograma_full.svg" alt="Cronograma del congreso AJI 2025" loading="lazy">
+      <div class="actions">
+        <a href="cronograma_full.svg" download="AJI2025_cronograma.svg" aria-label="Descargar cronograma">
+    Descargar cronograma ⬇️
+        </a>
+      </div>
+    </section>
 
     <h2 class="section-title">Ejes temáticos del congreso y Oradores Destacados:</h2>
 
@@ -465,10 +506,30 @@
         </div>
       </div>
 
-      <h3 class="section-title">📣 Panel especial – Comunicación pública de la ciencia</h3>
-      <p class="description">
-          El congreso contará además con una mesa redonda dedicada a los desafíos de la comunicación de la ciencia. Participará la reconocida periodista <strong>Nora Bär</strong>, el investigador y comunicador <strong> Dr. Pedro Bekinschtein</strong>, junto a otras figuras del ámbito de la divulgación que serán anunciadas próximamente.
+    <h3 class="section-title">📣 Paneles especiales</h3>
+
+    <div class="description">
+      <h4><strong>Comunicación pública de la ciencia:</strong></h4>
+      <p>
+        Mesa redonda dedicada a los desafíos de la comunicación de la ciencia.  
+        Participarán la reconocida periodista <strong>Nora Bär</strong>, los investigadores y comunicadores 
+        <strong>Dr. Pedro Bekinschtein</strong> y <strong>Dra. Nadia Chiaramoni</strong>.  
+        Moderación a cargo de <strong>Sol Figueroa</strong>.
       </p>
+
+      <h4><strong>Nuevas voces emergentes:</strong></h4>
+      <p>
+        Actividad coordinada por <strong>Sol Figueroa</strong> (CONICET-UNR, Cientina) y la 
+        <strong>Dra. Piscilia Pagnotta</strong> (CONICET-IBYME, UBA).
+      </p>
+
+      <h4><strong>Ciencia y divulgación:</strong></h4>
+      <p>
+        Charla a cargo de la <strong>Dra. Guadalupe Nogués</strong>.
+      </p>
+    </div>
+
+        </p>
 
       <h3 class="section-title">🗓️ Formato general del evento</h3>
       <ul class="description" style="list-style: none; padding: 0;">
@@ -548,17 +609,35 @@
 </p>
 
 <div class="sponsor-logos">
-  <img src="sponsor_bioing.png" alt="Sponsor 1">
-  <img src="sponsor_fil.png" alt="Sponsor 2">
-  <img src="sponsor_onelab.png" alt="Sponsor 3">
+  <a href="https://www.bio-ingenieria.com/zeiss-argentina.html" target="_blank" rel="noopener noreferrer" aria-label="Bioing">
+    <img src="sponsor_bioing.png" alt="Sponsor 1">
+  </a>
+  <a href="https://www.leloir.org.ar/" target="_blank" rel="noopener noreferrer" aria-label="FIL">
+    <img src="sponsor_fil.png" alt="Sponsor 2">
+  </a>
+  <a href="https://www.onelab.com.ar/" target="_blank" rel="noopener noreferrer" aria-label="OneLab">
+    <img src="sponsor_onelab.png" alt="Sponsor 3">
+  </a>
   <br>
-  <img src="sponsor_tlab.png" alt="Sponsor 4">
-  <img src="sponsor_edaci.png" alt="Sponsor 5">
-  <img src="sponsor_ebt.png" alt="Sponsor 8">
+  <a href="https://tecnolab.com.ar/" target="_blank" rel="noopener noreferrer" aria-label="TecnoLab">
+    <img src="sponsor_tlab.png" alt="Sponsor 4">
+  </a>
+  <a href="https://www.zs.com/careers/where-we-work/latin-america/buenos-aires" target="_blank" rel="noopener noreferrer" aria-label="ZS">  
+    <img src="sponsor_zs.png" alt="Sponsor 9">
+  </a>
+  <a href="https://edaci.com/" target="_blank" rel="noopener noreferrer" aria-label="EDACI">  
+    <img src="sponsor_edaci.png" alt="Sponsor 5">
+  </a>
+  <a href="https://www.embiotec.com.ar/" target="_blank" rel="noopener noreferrer" aria-label="EBT">  
+    <img src="sponsor_ebt.png" alt="Sponsor 8">
+  </a>
   <br>
-  <img src="sponsor_inbio.png" alt="Sponsor 6">
-  <img src="sponsor_gato.png" alt="Sponsor 7">
-  
+  <a href="https://inbiohw.com/" target="_blank" rel="noopener noreferrer" aria-label="InBio">
+    <img src="sponsor_inbio.png" alt="Sponsor 6">
+  </a>
+  <a href="https://elgatoylacaja.com/" target="_blank" rel="noopener noreferrer" aria-label="G&LC">  
+    <img src="sponsor_gato.png" alt="Sponsor 7">
+  </a>
 </div>
 
       <br>
@@ -572,7 +651,6 @@
     <p>Seguinos en redes: <a href="https://www.instagram.com/aji_argentina/">Instagram</a> | <a id="play-ttt" target="_blank" rel="noopener noreferrer">X</a></p>
     <p>Logo diseñado por <a href="https://www.instagram.com/_lolisima/" target="_blank" rel="noopener noreferrer">Loli 🧪</a></p>           
   </footer>
-          <!-- Hidden Tic Tac Toe -->
       <section class="tictactoe container" id="ttt-section" style="display:none;">
         <h3 class="section-title">Tatetí</h3>
         <div class="ttt-wrap">
@@ -844,7 +922,6 @@
 
 </body>
 </html>
-
 
 
 
