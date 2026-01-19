@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>AJI 2025 | Agrupación de Jóvenes Investigadores</title>
+  <link rel="icon" href="images/logo_loli.png" type="image/png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #327e45;
+      --orange: #ef770d;
+      --navy_blue: #4881bb;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: #F7E7CE;
+    }
+
+    .container {
+      width: 80%;
+      max-width: 1000px;
+      margin: 50px auto;
+    }
+
+    .logo {
+      max-width: 250px;
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+
+    .description {
+      color: #000000;
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      margin: 60px 0 20px;
+      color: #DD7373;
+      font-weight: 600;
+    }
+
+    .event-date {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .event-location {
+      color: inherit;
+      font-size: 1.2rem;
+    }
+
+    .event-location:hover {
+      text-decoration: underline;
+    }
+
+    /* Schedule */
+    .schedule {
+      margin: 40px auto 0 auto;
+      display: grid;
+      place-items: center;
+    }
+    .schedule img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      border: 12px solid rgba(50,126,69,0.2);
+    }
+
+    /* Speakers */
+    .speakers-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+    .speaker {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      text-align: left;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(230, 230, 225, 0.85);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .speaker:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+    }
+    .speaker-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--navy_blue);
+      flex: 0 0 auto;
+    }
+    .speaker-avatar[src*="lchemes.jpg"] { object-position: 80% 75%; }
+    .speaker-avatar[src*="awaisman.jfif"] { object-position: 8% 10%; }
+
+    .speaker-text a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .speaker-text a:hover { text-decoration: underline; }
+    .speaker-text strong {
+      display: inline-block;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    @media (max-width: 420px) {
+      .speaker { flex-direction: column; text-align: center; }
+    }
+    .speaker-centered {
+      flex-direction: column;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .speaker-centered .speaker-avatar { margin-bottom: 12px; }
+
+    /* Sponsors */
+    .Sponsors { color: #000000; margin-bottom: 40px; }
+
+    .sponsor-logos a{
+      display: inline-block;
+      text-decoration: none;
+      line-height: 0;
+    }
+    .sponsor-logos a img{ display: block; }
+
+    .sponsor-logos img{
+      max-height: 80px;
+      width: auto;
+      object-fit: contain;
+      transition: transform .2s ease, filter .2s ease;
+    }
+
+    .sponsor-logos img[src*="onelab"]{ transform: translateY(-25px); }
+    .sponsor-logos img[src*="onelab"],
+    .sponsor-logos img[src*="tlab"]{ max-height: 56px; }
+
+    .sponsor-logos img[src*="bioing"],
+    .sponsor-logos img[src*="fil"]{ max-height: 110px; }
+
+    .sponsor-logos img[src*="ebt"]{ max-height: 49px; width: auto; }
+
+    @media (max-width: 480px){
+      .sponsor-logos img{ max-height: 64px; }
+      .sponsor-logos img[src*="onelab"],
+      .sponsor-logos img[src*="tlab"]{ max-height: 48px; }
+      .sponsor-logos img[src*="bioing"],
+      .sponsor-logos img[src*="fil"]{ max-height: 90px; }
+    }
+
+    /* Banner buttons */
+    .aji-banner {
+      margin: 18px auto 10px auto;
+      max-width: 780px;
+    }
+    .aji-banner a {
+      display: block;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(72,129,187,0.18);
+      border: 2px solid rgba(72,129,187,0.45);
+      color: #000;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+    .aji-banner a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+    }
+    .aji-banner .sub {
+      display: block;
+      margin-top: 6px;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="aji-banner">
+      <a href="index.html" aria-label="Volver al inicio">
+        ← Volver al inicio
+        <span class="sub">Página principal de la AJI</span>
+      </a>
+    </div>
+    <img class="logo" src="images/logo_loli.png" alt="Logo AJI">
+
+
+
+    <h2 class="section-title">AJI 2025</h2>
+
+    <p class="description">
+      Para darle un puntapíe inicial a nuestra comunidad, en el 2025 realizaremos nuestro primer congreso, donde, a diferencia de otros eventos académicos tradicionales, pusimos el énfasis no solo en la presentación de resultados científicos, sino también en el intercambio de técnicas experimentales, herramientas de trabajo, dificultades comunes y aprendizajes cotidianos que forman parte esencial del hacer ciencia.
+    </p>
+
+    <p class="description">
+      <span class="event-date"><strong>16 y 17 de Octubre 2025 en el Instituto Leloir</strong></span> <br>
+      <a class="event-location" href="https://maps.app.goo.gl/YkSo4RwhZQKanhueA" target="_blank" rel="noopener noreferrer">
+        Av. Patricias Argentinas 435, Ciudad Autónoma de Buenos Aires
+      </a>
+    </p>
+
+    <section class="schedule" id="cronograma">
+      <img src="cronog_25/cronograma_simple.svg" alt="Cronograma del congreso AJI 2025" loading="lazy">
+    </section>
+
+    <h2 class="section-title">Ejes temáticos del congreso y Oradores Destacados:</h2>
+
+    <h3 class="section-title">🔬 Ejes temáticos del congreso</h3>
+    <ul class="description" style="list-style: none; padding: 0;">
+      <li><strong>Bioquímica, Biología molecular y celular</strong></li>
+      <li><strong>Biología vegetal y Biotecnología</strong></li>
+      <li><strong>Bioinformatica y Biología Computacional</strong></li>
+      <li><strong>Biología del desarrollo y Neurociencias</strong></li>
+    </ul>
+
+    <h3 class="section-title">🧠 Oradores destacados</h3>
+    <ul class="speakers-list">
+      <li class="speaker">
+        <img class="speaker-avatar" src="images/fariel.jpg" alt="Dr. Federico Ariel" loading="lazy">
+        <div class="speaker-text">
+          <strong>
+            <a href="https://ifibyne.exactas.uba.ar/grupo-ariel/" target="_blank" rel="noopener noreferrer">
+              Dr. Federico Ariel
+            </a>
+          </strong><br>
+          Investigador independiente del CONICET, trabaja actualmente en el Instituto de Fisiología, Biología Molecular y Neurociencias (IFIBYNE-UBA).
+        </div>
+      </li>
+
+      <li class="speaker">
+        <img class="speaker-avatar" src="images/lchemes.jpg" alt="Dra. Lucía Chemes" loading="lazy">
+        <div class="speaker-text">
+          <strong>
+            <a href="https://investigadores.unsam.edu.ar/eng/investigador/364/Chemes-Lucia-Beatriz-" target="_blank" rel="noopener noreferrer">
+              Dra. Lucía Chemes
+            </a>
+          </strong><br>
+          Investigadora independiente del CONICET, trabaja actualmente en el Instituto de Investigaciones Biotecnológicas (IIB-UNSAM).
+        </div>
+      </li>
+
+      <li class="speaker">
+        <img class="speaker-avatar" src="images/ddibella.jpg" alt="Dra. Daniela Di Bella" loading="lazy">
+        <div class="speaker-text">
+          <strong>
+            <a href="https://brain.harvard.edu/hbi_connectome/daniela-di-bella/" target="_blank" rel="noopener noreferrer">
+              Dra. Daniela Di Bella
+            </a>
+          </strong><br>
+          Doctora en Ciencias Biológicas, actualmente realiza su posdoctorado en el laboratorio de Paola Arlotta en Harvard University.
+        </div>
+      </li>
+
+      <li class="speaker">
+        <img class="speaker-avatar" src="images/awaisman.jfif" alt="Dr. Ariel Waisman" loading="lazy">
+        <div class="speaker-text">
+          <strong>
+            <a href="https://lian.fleni.org.ar/integrante/dr-ariel-waisman/" target="_blank" rel="noopener noreferrer">
+              Dr. Ariel Waisman
+            </a>
+          </strong><br>
+          Investigador Asistente del CONICET, trabaja actualmente en el Laboratorio de Investigación Aplicadas a Neurociencias (FLENI).
+        </div>
+      </li>
+    </ul>
+
+    <h3 class="section-title">🌟 Invitado especial</h3>
+    <div class="speaker speaker-centered">
+      <img class="speaker-avatar" src="images/bkrom.jpg" alt="Dr. Alberto Kornblihtt" loading="lazy">
+      <div class="speaker-text">
+        <strong>
+          <a href="http://ark.fbmc.fcen.uba.ar/home_eng.php" target="_blank" rel="noopener noreferrer">
+            Dr. Alberto Kornblihtt
+          </a>
+        </strong><br>
+        Investigador superior del CONICET, ex director del IFIBYNE (UBA-CONICET).
+        Su trayectoria científica y su compromiso con la ciencia pública lo convierten en una referencia ineludible para toda la comunidad científica argentina.
+      </div>
+    </div>
+
+    <h3 class="section-title">📣 Paneles especiales</h3>
+    <div class="description">
+      <h4><strong>Comunicación pública de la ciencia:</strong></h4>
+      <p>
+        Mesa redonda dedicada a los desafíos de la comunicación de la ciencia.
+        Participarán la reconocida periodista <strong>Nora Bär</strong>, los investigadores y comunicadores
+        <strong>Dr. Pedro Bekinschtein</strong> y <strong>Dra. Nadia Chiaramoni</strong>.
+        Moderación a cargo de <strong>Sol Figueroa</strong>.
+      </p>
+
+      <h4><strong>Nuevas voces emergentes:</strong></h4>
+      <p>
+        Actividad coordinada por <strong>Sol Figueroa</strong> (CONICET-UNR, Cientina) y la
+        <strong>Dra. Piscilia Pagnotta</strong> (CONICET-IBYME, UBA).
+      </p>
+
+      <h4><strong>Ciencia y divulgación:</strong></h4>
+      <p>
+        Charla a cargo de la <strong>Dra. Guadalupe Nogués</strong>.
+      </p>
+    </div>
+
+    <h3 class="section-title">🗓️ Formato general del evento</h3>
+    <ul class="description" style="list-style: none; padding: 0;">
+      <li>Charlas breves (10 minutos + 5 de preguntas) organizadas por eje temático</li>
+      <li>Conferencias magistrales de oradores/as invitados/as</li>
+      <li>Sesiones de pósters abiertas al intercambio entre pares</li>
+      <li>Mesas de discusión interdisciplinaria, incluyendo paneles especiales</li>
+      <li>Actividades sociales y recreativas orientadas a fortalecer la comunidad científica joven</li>
+    </ul>
+
+    <h2 class="section-title">Financiamiento 2025:</h2>
+    <p class="Sponsors">
+      <br>
+      Si deseas colaborar con la AJI, no dudes en contactarnos. <br>
+      La AJI es una organización sin fines de lucro y no cuenta con financiamiento interno. <br><br>
+      Conocé a nuestros sponsors: <br>
+    </p>
+
+    <div class="sponsor-logos">
+      <a href="https://www.bio-ingenieria.com/zeiss-argentina.html" target="_blank" rel="noopener noreferrer" aria-label="Bioing">
+        <img src="images/sponsor_bioing.png" alt="Bio-ingeniería">
+      </a>
+      <a href="https://www.leloir.org.ar/" target="_blank" rel="noopener noreferrer" aria-label="FIL">
+        <img src="images/sponsor_fil.png" alt="Fundación Instituto Leloir">
+      </a>
+      <a href="https://www.onelab.com.ar/" target="_blank" rel="noopener noreferrer" aria-label="OneLab">
+        <img src="images/sponsor_onelab.png" alt="OneLab">
+      </a>
+      <br>
+      <a href="https://tecnolab.com.ar/" target="_blank" rel="noopener noreferrer" aria-label="TecnoLab">
+        <img src="images/sponsor_tlab.png" alt="TecnoLab">
+      </a>
+      <a href="https://www.zs.com/careers/where-we-work/latin-america/buenos-aires" target="_blank" rel="noopener noreferrer" aria-label="ZS">
+        <img src="images/sponsor_zs.png" alt="ZS">
+      </a>
+      <a href="https://edaci.com/" target="_blank" rel="noopener noreferrer" aria-label="EDACI">
+        <img src="images/sponsor_edaci.png" alt="EDACI">
+      </a>
+      <a href="https://www.embiotec.com.ar/" target="_blank" rel="noopener noreferrer" aria-label="EBT">
+        <img src="images/sponsor_ebt.png" alt="EMBIOTEC">
+      </a>
+      <br>
+      <a href="https://inbiohw.com/" target="_blank" rel="noopener noreferrer" aria-label="InBio">
+        <img src="images/sponsor_inbio.png" alt="InBio">
+      </a>
+      <a href="https://elgatoylacaja.com/" target="_blank" rel="noopener noreferrer" aria-label="G&LC">
+        <img src="images/sponsor_gato.png" alt="El Gato y La Caja">
+      </a>
+    </div>
+
+    <div class="aji-banner" style="margin-top: 38px;">
+      <a href="index.html" aria-label="Volver al inicio (final de página)">
+        ← Volver al inicio
+      </a>
+    </div>
+  </div>
+</body>
+</html>
