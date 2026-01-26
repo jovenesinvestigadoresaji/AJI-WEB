@@ -1,453 +1,566 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Agrupación de Jovenes Investigadores</title>
-  <link rel="icon" href="images/logo_loli.png" type="image/png">
+  <title>Agrupación de Jóvenes Investigadores</title>
+  <link rel="icon" href="images/logo_loli.png" type="image/png" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    :root {
+    :root{
       --green: #327e45;
       --orange: #ef770d;
-      --navy_blue: #4881bb;
+      --navy: #1b3a57;
+
+      --bg: #f4f5f7;
+      --surface: #ffffff;
+      --text: #101418;
+      --muted: rgba(16,20,24,.70);
+
+      --shadow: 0 10px 24px rgba(16,20,24,.10);
+      --shadow2: 0 14px 34px rgba(16,20,24,.14);
+      --radius: 18px;
+      --radius2: 26px;
+
+      --maxw: 1100px;
+      --pad: 18px;
     }
 
-    body {
-      font-family: 'Montserrat', sans-serif;
+    *{ box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      background: radial-gradient(1200px 500px at 50% -80px, rgba(50,126,69,.14), transparent 60%),
+                  radial-gradient(900px 500px at 10% 10%, rgba(239,119,13,.12), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a{ color: inherit; }
+    a:focus-visible{ outline: 3px solid rgba(72,129,187,.55); outline-offset: 3px; border-radius: 10px; }
+
+    /* Layout */
+    .container{
+      width: min(var(--maxw), calc(100% - 2*24px));
+      margin: 0 auto;
+      padding: 28px 0 54px 0;
+    }
+
+    /* Header / hero */
+    header{
+      display: grid;
+      place-items: center;
+      padding: 22px 0 8px 0;
       text-align: center;
-      background-color: #efeeee;
     }
 
-    .container {
-      width: 80%;
-      max-width: 1000px;
-      margin: 50px auto;
+    .brand{
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
     }
 
-    .logo {
-      max-width: 250px;
+    .logo{
+      width: 170px;
+      height: 170px;
+      object-fit: contain;
+      border-radius: 28px;
+      background: rgba(255,255,255,.55);
+      box-shadow: var(--shadow);
+      padding: 12px;
+    }
+
+    .title{
+      margin: 10px 0 0 0;
+      font-size: clamp(1.35rem, 2.5vw, 2rem);
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
+    .subtitle{
+      margin: 6px 0 0 0;
+      color: var(--muted);
+      max-width: 64ch;
+      font-weight: 500;
+    }
+
+    /* Quick actions */
+    .actions{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 16px;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(16,20,24,.10);
+      background: rgba(255,255,255,.75);
+      box-shadow: 0 8px 18px rgba(16,20,24,.08);
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+    }
+    .btn:hover{ transform: translateY(-2px); box-shadow: var(--shadow2); background: #fff; }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(50,126,69,.95), rgba(50,126,69,.88));
+      color: #fff;
+      border-color: rgba(50,126,69,.35);
+    }
+    .btn.primary:hover{ box-shadow: 0 16px 34px rgba(50,126,69,.22); }
+
+    /* Section cards */
+    .card{
+      background: var(--surface);
+      border: 1px solid rgba(16,20,24,.08);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .stack{
+      display: grid;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .section-title{
+      margin: 0 0 10px 0;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
+    .description{
+      margin: 0;
+      color: rgba(16,20,24,.86);
+    }
+
+    .muted{
+      color: var(--muted);
+    }
+
+    /* AJI banner */
+    .aji-banner{
+      margin-top: 8px;
+    }
+
+    .aji-banner a{
       display: block;
-      margin: 0 auto 20px auto;
+      text-decoration: none;
+      border-radius: var(--radius2);
+      padding: 18px 18px;
+      border: 1px solid rgba(27,58,87,.18);
+      background: linear-gradient(135deg, rgba(72,129,187,.18), rgba(27,58,87,.08));
+      box-shadow: var(--shadow);
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .aji-banner a:hover{
+      transform: translateY(-2px);
+      box-shadow: var(--shadow2);
+    }
+    .aji-banner .line1{
+      font-weight: 900;
+      font-size: 1.15rem;
+      margin: 0 0 6px 0;
+    }
+    .aji-banner .sub{
+      margin: 0;
+      color: var(--muted);
+      font-weight: 600;
     }
 
-    .description {
-      color: #000000;
-      margin-bottom: 40px;
+    /* Team */
+    .team-header{
+      margin-top: 26px;
     }
 
-    
-
-
-  /* welcome home y mision   */
-  .section-title{
-    margin: 32px auto 20px auto;
-    max-width: 780px;
-
-    display: block;
-    padding: 18px 18px;
-    /* border-radius: 18px; */
-    background: #F6E06D;
-    border: 2px solid #000;
-
-    color: #000;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-
-    box-shadow: 0 10px 26px rgba(0,0,0,0.06);
-    transition: transform 0.12s ease, box-shadow 0.12s ease;
-  }
-
-  .section-card{
-    width: 100%;
-    margin: 32px 0 20px 0;
-    padding: 18px 0;         
-    border-radius: 0;
-    background: #70628a;
-    border: 0;
-    color: #000;
-    box-shadow: 0 10px 26px rgba(0,0,0,0.06);
-  }
-
-
-  .section-card .inner{
-    width: 100%;
-    max-width: 50000px;
-    margin: 0 auto;
-    text-align: center;      
-  }
-
-  .section-card .section-title{
-    margin: 0 0 10px 0;   
-    padding: 0;         
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-    transition: none;
-    max-width: none;
-
-    font-size: 1.9rem;   
-    font-weight: 700;
-    letter-spacing: 0.3px;
-    color: #000;
-  }
-  .section-card .description{
-    margin: 0;
-    color: #000;
-  }
-
-  /* AJI 2025 */
-    
-  .aji-banner{
-    max-width: 950px;          
-  }
-  .aji-banner a{
-    padding: 28px 26px;       
-    font-size: 1.25rem;        
-  }
-  .aji-banner .sub{
-    font-size: 1rem;           
-  }
-
-  .aji-banner a {
-    display: block;
-    padding: 18px 18px;
-    border-radius: 18px;
-    background:#1A7183;
-    border: 2px solid #1A7183;
-    color: #000;
-    text-decoration: none;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-    box-shadow: 0 10px 26px rgba(0,0,0,0.06);
-    transition: transform 0.12s ease, box-shadow 0.12s ease;
-  }
-  .aji-banner a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 30px rgba(0,0,0,0.10);
-    text-decoration: none;
-  }
-  .aji-banner .sub {
-    display: block;
-    margin-top: 6px;
-    font-weight: 500;
-    opacity: 0.9;
-  }
-
-  /* integrantes etc */
-  .photo-row-large .photo-wrapper {
-    width: 40%;
-    min-width: 300px;
-  }
-  .photo-row-large {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 60px;
-    flex-wrap: wrap;
-  }
-
-  .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    justify-items: center;
-    gap: 40px;
-  }
-
-  .photo-wrapper {
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-  }
-
-  .photo-wrapper.show {
-    opacity: 1;
-  }
-
-  .photo {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid var(--green);
-    display: block;
-    margin: 0 auto 10px;
-  }
-
-  .photo-grid .photo-wrapper .photo {
-    border-color: var(--orange);
-  }
-
-  .Codigo_de_conducta {
-    color: #000000;
-    margin-bottom: 40px;
-  }
-
-  .contact {
-    color: #000000;
-    text-decoration: none;
-    margin-bottom: 60px;
-  }
-
-  footer {
-    text-align: center;
-    background-color: #327e45;
-    color: white;
-    padding: 20px;
-    margin-top: 40px;
-  }
-
-  footer a {
-    color: #F7E7CE;
-     text-decoration: underline;
-  }
-
-    @media (max-width: 768px) {
-      .photo-row-large {
-        flex-direction: column;
-        align-items: center;
-      }
-      .photo-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-      }
+    .team-grid{
+      margin-top: 14px;
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(12, 1fr);
     }
 
-    @media (max-width: 480px) {
-      .photo-grid {
-        grid-template-columns: 1fr;
-      }
+    .team-card{
+      grid-column: span 6;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 18px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(16,20,24,.08);
+      background: rgba(255,255,255,.92);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity .55s ease, transform .55s ease, box-shadow .15s ease;
     }
 
-    /* floating form logo */
-    #floating-logo {
+    .team-card.show{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .team-card:hover{ box-shadow: var(--shadow2); }
+
+    .photo{
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 999px;
+      border: 3px solid rgba(50,126,69,.75);
+      background: #fff;
+    }
+
+    .team-card.secondary .photo{
+      border-color: rgba(239,119,13,.75);
+    }
+
+    .person{
+      margin: 0;
+      font-weight: 900;
+      font-size: 1.05rem;
+      line-height: 1.2;
+    }
+
+    .bio{
+      margin: 8px 0 0 0;
+      color: rgba(16,20,24,.82);
+      font-size: .95rem;
+    }
+
+    /* Info blocks */
+    .info-grid{
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .info-grid .card{
+      grid-column: span 6;
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 26px;
+      border-radius: var(--radius2);
+      overflow: hidden;
+      border: 1px solid rgba(16,20,24,.08);
+      box-shadow: var(--shadow);
+      background: linear-gradient(135deg, rgba(50,126,69,.95), rgba(27,58,87,.55));
+      color: #fff;
+    }
+    footer .inner{
+      padding: 18px;
+      display: grid;
+      gap: 8px;
+      text-align: center;
+    }
+    footer a{
+      color: rgba(255,255,255,.92);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 700;
+    }
+
+    /* Floating form logo */
+    #floating-logo{
       position: fixed;
       right: 16px;
       bottom: 16px;
       z-index: 9999;
+      text-decoration: none;
     }
-    #floating-logo img {
-      width: 100px;
-      height: auto;
+    #floating-logo .chip{
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(16,20,24,.12);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    #floating-logo:hover .chip{
+      transform: translateY(-2px);
+      box-shadow: var(--shadow2);
+    }
+    #floating-logo img{
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
       object-fit: contain;
-      transition: transform 0.2s ease;
+      background: #fff;
+      border: 1px solid rgba(16,20,24,.10);
       animation: pulse 4s ease-in-out infinite;
     }
-    #floating-logo:hover img { transform: rotate(3deg) scale(1.03); }
-
-    @media (prefers-reduced-motion: reduce) {
-      #floating-logo, #floating-logo img { transition: none !important; animation: none !important; }
+    #floating-logo .label{
+      font-weight: 900;
+      font-size: .92rem;
+      color: var(--text);
+      white-space: nowrap;
     }
 
-    @supports (padding: max(0px)) {
-      #floating-logo { bottom: max(16px, env(safe-area-inset-bottom)); }
+    @supports (padding: max(0px)){
+      #floating-logo{ bottom: max(16px, env(safe-area-inset-bottom)); }
     }
 
-    @keyframes pulse {
+    @keyframes pulse{
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.08); }
+      50% { transform: scale(1.06); }
     }
 
-    @keyframes logoPop {
+    @keyframes logoPop{
       0%   { transform: scale(1); }
-      40%  { transform: scale(1.2); }
-      65%  { transform: scale(1.4); }
-      80%  { transform: scale(1.15); }
+      40%  { transform: scale(1.14); }
+      65%  { transform: scale(1.24); }
+      80%  { transform: scale(1.10); }
       100% { transform: scale(1); }
     }
-    #big-logo.pop {
-      animation: logoPop 0.57s cubic-bezier(.68,-0.55,.27,1.55);
+    #big-logo.pop{
+      animation: logoPop 0.55s cubic-bezier(.68,-0.55,.27,1.55);
     }
 
+    @media (prefers-reduced-motion: reduce){
+      *{ scroll-behavior: auto !important; }
+      #floating-logo img{ animation: none !important; }
+      .btn, .aji-banner a, .team-card{ transition: none !important; }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .team-card{ grid-column: span 12; }
+      .info-grid .card{ grid-column: span 12; }
+    }
+    @media (max-width: 520px){
+      .team-card{
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+      .photo{ width: 110px; height: 110px; }
+      #floating-logo .label{ display: none; }
+    }
   </style>
 </head>
-
-
-
-
 
 <body>
   <div class="container">
 
-    <img class="logo" src="images/logo_loli.png" alt="Logo" id="big-logo">
-    
-    <!--intro -->
-      
-  <div class="section-card">
-    <div class="inner">
-      <h2 class="section-title">Ciencia joven, colaborativa y federal 🧪</h2>
-      <p class="description">
-        La<strong> Agrupación de Jóvenes Investigadores (AJI)</strong> es una organización sin fines de lucro que busca generar un espacio de charla, reflexión y discusión para
-        estudiantes de doctorado, postdoctorado e investigadores jóvenes en Argentina, con un formato de reuniones anuales.
-      </p>
-    </div>
+    <header>
+      <div class="brand">
+        <img class="logo" src="images/logo_loli.png" alt="Logo de la AJI" id="big-logo" />
+        <h1 class="title">Agrupación de Jóvenes Investigadores</h1>
+        <p class="subtitle">
+          Ciencia joven, colaborativa y federal.
+        </p>
+
+        <div class="actions" aria-label="Accesos rápidos">
+          <a class="btn primary" href="aji2025.html">Congreso AJI 2025</a>
+          <a class="btn" href="https://www.instagram.com/aji_argentina/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a class="btn" href="#contacto">Contacto</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="stack" role="main">
+      <!-- Intro + mission -->
+      <section class="card" aria-label="Presentación">
+        <h2 class="section-title">Ciencia joven, colaborativa y federal 🧪</h2>
+        <p class="description">
+          La <strong>Agrupación de Jóvenes Investigadores (AJI)</strong> es una organización sin fines de lucro que busca generar un espacio de charla, reflexión y discusión para
+          estudiantes de doctorado, postdoctorado e investigadores jóvenes en Argentina, con un formato de reuniones anuales.
+        </p>
+      </section>
+
+      <section class="card" aria-label="Misión">
+        <h2 class="section-title">Misión</h2>
+        <p class="description">
+          Nuestra misión se basa en una iniciativa inédita que busca consolidar un espacio <strong>propio, horizontal y federal</strong> para investigadores/as en etapas de formación: becarios/as doctorales, posdoctorales, investigadores/as jóvenes y estudiantes avanzados/as de grado de todo el país.
+        </p>
+      </section>
+
+      <!-- AJI 2025 -->
+      <section class="aji-banner" aria-label="Congreso AJI 2025">
+        <a href="aji2025.html">
+          <p class="line1">Conocé más del congreso de la AJI 2025</p>
+          <p class="sub">Programa, oradores, ejes temáticos y más</p>
+        </a>
+      </section>
+
+      <!-- Team -->
+      <section class="team-header" aria-label="Integrantes">
+        <div class="card">
+          <h2 class="section-title">Integrantes</h2>
+          <p class="description muted">Comité organizador y científico.</p>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-card">
+            <img class="photo" src="images/tpeters.jpeg" alt="Foto de Tomás Peters" />
+            <div>
+              <h3 class="person">Tomás Peters</h3>
+              <p class="bio">
+                Presidente y co-fundador de la AJI. Licenciado en Biotecnología y Biología Molecular (UNLP), becario doctoral CONICET, docente en la UNLP y estudiante de doctorado en el Laboratorio de Biología Celular del ARN (FIL - UBA).
+              </p>
+            </div>
+          </article>
+
+          <article class="team-card">
+            <img class="photo" src="images/jmacdonagh.jpg" alt="Foto de Juan Mac Donagh" />
+            <div>
+              <h3 class="person">Juan Mac Donagh</h3>
+              <p class="bio">
+                Vicepresidente y co-fundador de la AJI. Licenciado en Biotecnología y Biología Molecular (UNLP), becario doctoral CONICET, docente en la UNLP y estudiante de doctorado en Structural Bioinformatics Group (UNQ).
+              </p>
+            </div>
+          </article>
+
+          <article class="team-card secondary">
+            <img class="photo" src="images/Joselina.jpeg" alt="Foto de Joselina Berti" />
+            <div>
+              <h3 class="person">Joselina Berti</h3>
+              <p class="bio">
+                Miembro del comité científico. Licenciada en Biotecnología (UADE), becaria doctoral CONICET y estudiante de doctorado en el Laboratorio de Genética del Desarrollo Neural (FIL - FCEN UBA).
+              </p>
+            </div>
+          </article>
+
+          <article class="team-card secondary">
+            <img class="photo" src="images/Caterina.JPG" alt="Foto de Caterina Sister" />
+            <div>
+              <h3 class="person">Caterina Sister</h3>
+              <p class="bio">
+                Miembro del comité científico. Licenciada en Biología (FCEN UBA) y actualmente becaria doctoral CONICET en el Laboratorio de Genética del Desarrollo Neural (FIL - FCEN UBA).
+              </p>
+            </div>
+          </article>
+
+          <article class="team-card secondary">
+            <img class="photo" src="images/Fran.jpg" alt="Foto de Francisco Corvetto Aristrain" />
+            <div>
+              <h3 class="person">Francisco Corvetto Aristrain</h3>
+              <p class="bio">
+                Miembro del comité científico. Licenciado en Biología (FCEN UBA) y actualmente becario doctoral en el Laboratorio de Biología Celular del ARN (FCEN UBA).
+              </p>
+            </div>
+          </article>
+
+          <article class="team-card secondary">
+            <img class="photo" src="images/Gobbini.jpeg" alt="Foto de Laura Gobbini" />
+            <div>
+              <h3 class="person">Laura Gobbini</h3>
+              <p class="bio">
+                Miembro del comité científico. Licenciada en Ciencias Biológicas (FCEN UBA). Actualmente estudiante de doctorado en el Laboratorio de Biología Molecular de Plantas (Fundación Instituto Leloir).
+              </p>
+            </div>
+          </article>
+
+          <article class="team-card secondary">
+            <img class="photo" src="images/VI_aji.jpeg" alt="Foto de Virginia Ibarra" />
+            <div>
+              <h3 class="person">Virginia Ibarra</h3>
+              <p class="bio">
+                Miembro del comité científico. Licenciada en Biotecnología (UNL), becaria doctoral CONICET y desarrolla su tesis en el Laboratorio de Biología Molecular de Plantas (FIL/IIBBA-CONICET).
+              </p>
+            </div>
+          </article>
+
+          <article class="team-card secondary">
+            <img class="photo" src="images/wacu.jpeg" alt="Foto de Facundo Sanchez Trapes" />
+            <div>
+              <h3 class="person">Facundo Sanchez Trapes</h3>
+              <p class="bio">
+                Miembro del comité científico. Licenciado en Biotecnología y Biología Molecular (UNLP), becario Agencia en el Laboratorio de Estudio de Secreción (FCEN UBA) y docente de la UNLP.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Code of conduct + contact -->
+      <section class="info-grid" aria-label="Información">
+        <div class="card">
+          <h2 class="section-title">Código de conducta</h2>
+          <p class="description">
+            La AJI se respalda en un código de conducta con especial énfasis en el respeto y el respaldo mutuo.
+            <br />
+            <a href="https://docs.google.com/document/d/1GZi98oojkXhOoQ0TF-7YWduQnxWehQCelQayEdQl4Oc/edit?usp=sharing"
+               target="_blank" rel="noopener noreferrer">Disponible aquí</a>
+          </p>
+        </div>
+
+        <div class="card" id="contacto">
+          <h2 class="section-title">Redes y contacto</h2>
+          <p class="description">
+            Contacto:
+            <br />
+            <strong>jovenesinvestigadoresaji@gmail.com</strong>
+          </p>
+          <p class="description muted" style="margin-top:10px;">
+            Seguinos en <a href="https://www.instagram.com/aji_argentina/" target="_blank" rel="noopener noreferrer">Instagram</a>.
+          </p>
+        </div>
+      </section>
+
+      <footer aria-label="Footer">
+        <div class="inner">
+          <div>Seguinos en redes: <a href="https://www.instagram.com/aji_argentina/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
+          <div>Logo diseñado por <a href="https://www.instagram.com/_lolisima/" target="_blank" rel="noopener noreferrer">Loli 🧪</a></div>
+        </div>
+      </footer>
+    </main>
   </div>
 
-  <div class="section-card">
-    <div class="inner">
-      <h2 class="section-title">Misión</h2>
-      <p class="description">
-        Nuestra misión se basa en una iniciativa inédita que busca consolidar un espacio <strong>propio, horizontal y federal</strong> para investigadores/as en etapas de formación: becarios/as doctorales, posdoctorales, investigadores/as jóvenes y estudiantes avanzados/as de grado de todo el país.
-      </p>
-    </div>
-  </div>
-    
-
-
-    <!-- aji 2025 -->
-     
-    <div class="aji-banner">
-      <a href="aji2025.html" aria-label="datos AJI 2025">
-        Conocé más del congreso de la AJI 2025:
-        <span class="sub">Programa, oradores, ejes temáticos y más</span>
-      </a>
-    </div>
-
-    <!-- equipo -->
-    <br>
-    <h2 class="section-title">Integrantes</h2>
-    <br>
-
-    <div class="photo-row-large">
-      <div class="photo-wrapper">
-        <img class="photo" src="images/tpeters.jpeg" alt="Photo 1">
-        <p class="description">Tomás Peters, presidente y co-fundador de la AJI, es Licenciado en Biotecnología y Biología Molecular de la UNLP,  becario doctoral CONICET, docente en la UNLP y estudiante de doctorado en Laboratorio de biología celular del ARN - FIL - UBA.</p>
-      </div>
-      <div class="photo-wrapper">
-        <img class="photo" src="images/jmacdonagh.jpg" alt="Photo 2">
-        <p class="description">Juan Mac Donagh, vicepresidente y co-fundador de la AJI, es Licenciado en Biotecnología y Biología Molecular de la UNLP, becario doctoral CONICET, docente en la UNLP y estudiante de doctorado en Structural Bioinformatics Group - UNQ.</p>
-      </div>
-    </div>
-
-    <div class="photo-grid">
-      <div class="photo-wrapper">
-        <img class="photo" src="images/Joselina.jpeg" alt="Photo 3">
-        <p class="description">Joselina Berti, miembro del comité científico de la AJI, es Licenciada en Biotecnología de UADE, becaria doctoral CONICET y estudiante de doctorado en el Laboratorio de Genética del Desarrollo Neural FIL - FCEN UBA.</p>
-      </div>
-
-      <div class="photo-wrapper">
-        <img class="photo" src="images/Caterina.JPG" alt="Photo 4">
-        <p class="description">Caterina Sister, miembro del comité científico de la AJI, es Licenciada en Biología de la Facultad de Ciencias Exactas y Naturales (UBA) y actualmente, becaria doctoral CONICET desarrollando sus estudios en el Laboratorio de Genética del Desarrollo Neural FIL - FCEN UBA.</p>
-      </div>
-
-      <div class="photo-wrapper">
-        <img class="photo" src="images/Fran.jpg" alt="Photo 5">
-        <p class="description">Francisco Corvetto Aristrain, miembro del comité científico de la AJI, es licenciado en Biología de la Facultad de Ciencias Exactas y Naturales (UBA) y actualmente, becario doctoral desarrollando sus estudios en el Laboratorio de Biología Celular del ARN - FCEN UBA.</p>
-      </div>
-
-      <div class="photo-wrapper">
-        <img class="photo" src="images/Gobbini.jpeg" alt="Photo 6">
-        <p class="description">Laura Gobbini, miembro del comité científico de la AJI, es Licenciada en Ciencias Biológicas de la Facultad de Ciencias Exactas y Naturales, UBA. Actualmente, estudiante de doctorado en el laboratorio de Biología Molecular de Plantas en la Fundación Instituto Leloir. </p>
-      </div>
-
-      <div class="photo-wrapper">
-        <img class="photo" src="images/VI_aji.jpeg" alt="Photo 7">
-        <p class="description">Virginia Ibarra, miembro del comité científico de la AJI, es Licenciada en Biotecnología egresada de la Universidad Nacional del Litoral (UNL). Actualmente, becaria doctoral CONICET y desarrolla su tesis en el Laboratorio de Biología Molecular de Plantas en la Fundación Instituto Leloir (FIL)/IIBBA-CONICET. </p>
-      </div>
-
-      <div class="photo-wrapper">
-        <img class="photo" src="images/wacu.jpeg" alt="Photo 8">
-        <p class="description">Facundo Sanchez Trapes, miembro del comité científico de la AJI, es licenciado en Biotecnología y Biología Molecular de la UNLP, becario Agencia en el Laboratorio de Estudio de Secreción - FCEN UBA y docente de la UNLP. </p>
-      </div>
-    </div>
-
-    <h2 class="section-title">Codigo de conducta</h2>
-    <p class="Codigo_de_conducta">
-      La AJI se respalda en un código de conducta con especial énfasis en el respeto y el respaldo mutuo:
-      <a class="event-location" href="https://docs.google.com/document/d/1GZi98oojkXhOoQ0TF-7YWduQnxWehQCelQayEdQl4Oc/edit?usp=sharing"
-         target="_blank" rel="noopener noreferrer"><br> disponible aquí</a>
-    </p>
-
-    <h2 class="section-title">Redes y contacto</h2>
-    <p class="contact">
-      Contacto: <br> jovenesinvestigadoresaji@gmail.com
-    </p>
-
-    <footer>
-      <p>Seguinos en redes: <a href="https://www.instagram.com/aji_argentina/">Instagram</a></p>
-      <p>Logo diseñado por <a href="https://www.instagram.com/_lolisima/" target="_blank" rel="noopener noreferrer">Loli 🧪</a></p>
-    </footer>
-  </div>
-
+  <!-- Floating signup -->
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSfrn-Ay62YDFT1W4liZnXIJ0cTZPDr5O24-Wieaemc2Z2nRHQ/viewform"
      id="floating-logo"
      aria-label="Formulario de inscripción"
      target="_blank"
      rel="noopener noreferrer">
-    <img src="images/logo_loli.png" alt="AJI logo">
+    <span class="chip" role="button">
+      <img src="images/logo_loli.png" alt="AJI logo" />
+      <span class="label">Inscripción</span>
+    </span>
   </a>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <audio id="logo-sound" src="mate.wav" preload="auto"></audio>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const cards = document.querySelectorAll('.photo-wrapper');
+      const cards = document.querySelectorAll('.team-card');
       const io = new IntersectionObserver(entries => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
-      }, { threshold: 0.3 });
+      }, { threshold: 0.2 });
       cards.forEach(c => io.observe(c));
     });
   </script>
-
-  <script>
-    (function () {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-      function init() {
-        const img = document.querySelector('#floating-logo img');
-        if (!img) return;
-        const maxRotate = 720;
-        let ticking = false;
-
-        function onScroll() {
-          if (ticking) return;
-          ticking = true;
-          requestAnimationFrame(() => {
-            const doc = document.documentElement;
-            const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
-            const progress = Math.min(1, window.scrollY / maxScroll);
-            img.style.rotate = (progress * maxRotate) + 'deg';
-            ticking = false;
-          });
-        }
-
-        onScroll();
-        window.addEventListener('scroll', onScroll, { passive: true });
-      }
-
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-      } else {
-        init();
-      }
-    })();
-  </script>
-
-  <audio id="logo-sound" src="mate.wav" preload="auto"></audio>
 
   <script>
     const bigLogo = document.getElementById('big-logo');
     const sound = document.getElementById('logo-sound');
 
     bigLogo.addEventListener('click', () => {
-      sound.currentTime = 0;
-      sound.play();
+      try {
+        sound.currentTime = 0;
+        sound.play();
+      } catch (e) {}
 
       bigLogo.classList.remove('pop');
       void bigLogo.offsetWidth;
