@@ -7,7 +7,7 @@
   <title>Agrupación de Jóvenes Investigadores</title>
   <link rel="icon" href="images/logo_loli.png" type="image/png" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
     :root{
@@ -190,6 +190,278 @@
       font-weight: 600;
     }
 
+    /* Congreso 2026 — paleta PN Ciervo de los Pantanos */
+    .c26{
+      --ink: #1E1B14;
+      --paper: #F2F0E6;
+      --paper-2: rgba(242,240,230,.74);
+      --rule: rgba(242,240,230,.14);
+      --azul: #3C648C;
+      --celeste: #A1D4EF;
+      --verde: #556042;
+      --verde-cl: #BECD8E;
+      --salvia: #B2BA84;
+      --ocre: #887824;
+      --marron: #775936;
+      --accent: #BECD8E;
+      --boton: #447461;
+      --mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+
+      background: #3C648C;
+      color: var(--paper);
+      border-radius: var(--radius2);
+      overflow: hidden;
+      box-shadow: var(--shadow2);
+      scroll-margin-top: 16px;
+    }
+    .c26-strip{
+      display: grid;
+      grid-template-columns: 3fr 2fr 1fr 2fr 1fr 3fr;
+      height: 6px;
+    }
+    .c26-strip span:nth-child(1){ background: var(--azul); }
+    .c26-strip span:nth-child(2){ background: var(--verde); }
+    .c26-strip span:nth-child(3){ background: var(--ocre); }
+    .c26-strip span:nth-child(4){ background: var(--marron); }
+    .c26-strip span:nth-child(5){ background: var(--celeste); }
+    .c26-strip span:nth-child(6){ background: var(--accent); }
+
+    .c26-inner{ padding: clamp(22px, 4.5vw, 48px); }
+
+    .c26-top{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .c26-kicker, .c26-label, .c26-h3, .c26-month, .c26-stats span, .c26-photo figcaption{
+      font-family: var(--mono);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .74rem;
+    }
+    .c26-kicker{ color: var(--salvia); }
+    .c26-status{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 10px;
+      border: 1px solid var(--accent);
+      border-radius: 3px;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: .74rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+    .c26-status i{
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: c26blink 2.4s ease-in-out infinite;
+    }
+    @keyframes c26blink{ 50%{ opacity: .25; } }
+
+    .c26-main{
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: clamp(28px, 5vw, 64px);
+      align-items: end;
+      margin-top: clamp(22px, 3.5vw, 36px);
+    }
+
+    .c26-title{
+      margin: 0;
+      font-size: clamp(1.7rem, 4vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -.02em;
+      max-width: 17ch;
+    }
+
+    .c26-when{ margin: clamp(18px, 3vw, 30px) 0 22px; }
+    .c26-date{
+      margin: 0;
+      font-size: clamp(4.2rem, 13vw, 8.8rem);
+      font-weight: 800;
+      line-height: .82;
+      letter-spacing: -.045em;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+    .c26-sep{ font-weight: 300; color: var(--ocre); margin: 0 .04em; }
+    .c26-month{ margin: 12px 0 0; color: var(--celeste); font-size: .86rem; }
+
+    .c26-venue{
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 6px 14px;
+      padding: 14px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      font-size: 1.02rem;
+    }
+    .c26-label{ color: var(--salvia); }
+
+    .c26-lead{
+      margin: 20px 0 0;
+      max-width: 58ch;
+      color: var(--paper-2);
+    }
+
+    .c26-cta{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px 24px;
+      margin-top: 26px;
+    }
+    .c26-btn{
+      display: inline-block;
+      padding: 14px 24px;
+      background: var(--boton);
+      color: #fff;
+      border-radius: 4px;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: .01em;
+      transition: background .15s ease, transform .15s ease;
+    }
+    .c26-btn:hover{ background: #fff; transform: translateY(-2px); }
+    .c26-link{
+      color: var(--celeste);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+    .c26-link::after{ content: " ↗"; text-decoration: none; display: inline-block; margin-left: 2px; }
+    .c26-link:hover{ color: var(--paper); }
+    .c26-note{ margin: 14px 0 0; font-size: .9rem; color: var(--salvia); }
+
+    .c26-when{ margin-bottom: 0; }
+    .c26-photo{ margin: clamp(30px, 4.5vw, 48px) 0 0; }
+    .c26-photo img{
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 21 / 9;
+      object-fit: cover;
+      object-position: 50% 60%;
+      border-radius: 6px;
+    }
+    .c26-photo figcaption{ margin-top: 10px; color: var(--salvia); font-size: .68rem; }
+
+    .c26-block{
+      margin-top: clamp(30px, 4.5vw, 48px);
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+    }
+    .c26-h3{ margin: 0 0 14px; color: var(--salvia); }
+
+    .c26-ejes{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      counter-reset: eje;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      column-gap: 32px;
+    }
+    .c26-ejes li{
+      counter-increment: eje;
+      display: grid;
+      grid-template-columns: 2.4rem 1fr;
+      align-items: baseline;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(242,240,230,.08);
+      font-weight: 600;
+      font-size: 1.02rem;
+      line-height: 1.35;
+    }
+    .c26-ejes li::before{
+      content: counter(eje, decimal-leading-zero);
+      font-family: var(--mono);
+      font-size: .8rem;
+      color: var(--c);
+    }
+
+    .c26-prog{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+    .c26-prog li{ padding-left: 14px; border-left: 2px solid var(--verde); }
+    .c26-prog h4{ margin: 0 0 6px; font-size: 1rem; font-weight: 700; }
+    .c26-prog p{ margin: 0; font-size: .92rem; color: var(--paper-2); }
+
+    .c26-stats{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: clamp(30px, 4.5vw, 48px);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .c26-stats > div{ padding: 18px 16px 18px 0; }
+    .c26-stats > div + div{ padding-left: 16px; border-left: 1px solid var(--rule); }
+    .c26-stats b{
+      display: block;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -.02em;
+      font-variant-numeric: tabular-nums;
+    }
+    .c26-stats span{ display: block; margin-top: 8px; color: var(--salvia); font-size: .68rem; }
+    .c26-goal b{ color: var(--accent); }
+
+    .c26-support{
+      margin-top: clamp(30px, 4.5vw, 48px);
+    }
+    .c26-sponsors{
+      margin: 12px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px clamp(20px, 4vw, 48px);
+      font-size: clamp(1.6rem, 4.2vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      line-height: 1.1;
+    }
+    .c26-sponsors-more{ margin: 10px 0 0; color: var(--paper-2); }
+
+    .c26-map{
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+    .c26-map::after{ content: " ↗"; display: inline-block; margin-left: 2px; }
+    .c26-map:hover{ color: var(--celeste); }
+
+    .c26 a:focus-visible{ outline: 3px solid var(--celeste); outline-offset: 3px; }
+
+    @media (max-width: 860px){
+      .c26-main{ grid-template-columns: 1fr; }
+      .c26-photo img{ aspect-ratio: 3 / 2; }
+      .c26-prog{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px){
+      .c26-prog{ grid-template-columns: 1fr; }
+      .c26-stats{ grid-template-columns: repeat(2, 1fr); }
+      .c26-stats > div:nth-child(3){ padding-left: 0; border-left: 0; }
+      .c26-stats > div:nth-child(n+3){ border-top: 1px solid var(--rule); }
+    }
+
     /* Team */
     .team-header{
       margin-top: 26px;
@@ -352,7 +624,8 @@
     @media (prefers-reduced-motion: reduce){
       *{ scroll-behavior: auto !important; }
       #floating-logo img{ animation: none !important; }
-      .btn, .aji-banner a, .team-card{ transition: none !important; }
+      .btn, .aji-banner a, .team-card, .c26-btn{ transition: none !important; }
+      .c26-status i{ animation: none !important; }
     }
 
     /* Responsive */
@@ -389,6 +662,7 @@
 
         <div class="actions" aria-label="Accesos rápidos">
           <!-- <a class="btn primary" href="aji2025.html" data-i18n="btn_aji2025">AJI 2025</a>/ -->
+          <a class="btn" href="#congreso-2026" data-i18n="btn_c26">Congreso 2026</a>
           <a class="btn" href="https://www.instagram.com/aji_argentina/" target="_blank" rel="noopener noreferrer" data-i18n="btn_instagram">Instagram</a>
           <a class="btn" href="#contacto" data-i18n="btn_contact">Contacto</a>
         </div>
@@ -396,6 +670,97 @@
     </header>
 
     <main class="stack" role="main">
+      <section class="c26" id="congreso-2026" aria-labelledby="c26-title">
+        <div class="c26-strip" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+        <div class="c26-inner">
+          <div class="c26-top">
+            <span class="c26-kicker" data-i18n="c26_kicker">II Congreso · AJI 2026</span>
+            <span class="c26-status"><i aria-hidden="true"></i><span data-i18n="c26_status">Inscripción abierta</span></span>
+          </div>
+
+          <div class="c26-main">
+            <div class="c26-head">
+              <h2 class="c26-title" id="c26-title" data-i18n="c26_title">2º Congreso de Jóvenes Investigadores</h2>
+
+              <div class="c26-when">
+                <p class="c26-date">10<span class="c26-sep">–</span>11</p>
+                <p class="c26-month" data-i18n="c26_month">diciembre 2026</p>
+              </div>
+            </div>
+
+            <div class="c26-copy">
+              <p class="c26-venue">
+                <span class="c26-label" data-i18n="c26_venue_label">Sede</span>
+                <a class="c26-map" href="https://www.google.com/maps/search/?api=1&amp;query=Universidad+Nacional+de+San+Mart%C3%ADn" target="_blank" rel="noopener noreferrer"><strong>Universidad Nacional de San Martín</strong> (UNSAM)</a>
+              </p>
+
+              <p class="c26-lead" data-i18n="c26_lead">
+                Un congreso organizado por y para jóvenes investigadores: un espacio de encuentro, intercambio y colaboración para estudiantes avanzados, doctorandos, posdoctorandos e investigadores en etapas iniciales de su carrera.
+              </p>
+
+              <div class="c26-cta">
+                <a class="c26-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdExKuuPWnfLG-Nr-D-2GKMc4UrDGtJQSIosn8FYzcC6Olbcw/viewform" target="_blank" rel="noopener noreferrer" data-i18n="c26_cta">Inscribirme</a>
+                <a class="c26-link" href="https://taplink.cc/jovenesinvestigadoresaji" target="_blank" rel="noopener noreferrer" data-i18n="c26_more">Más información</a>
+              </div>
+              <p class="c26-note" data-i18n="c26_becas">Podés solicitar beca de inscripción o de movilidad.</p>
+            </div>
+
+          </div>
+
+          <figure class="c26-photo">
+            <img src="images/aji2025_grupo.jpg" alt="Participantes del primer congreso AJI en 2025, en el auditorio" width="1800" height="1200" loading="lazy" />
+            <figcaption data-i18n="c26_photo_cap">AJI 2025 — primera edición</figcaption>
+          </figure>
+
+          <div class="c26-block">
+            <h3 class="c26-h3" data-i18n="c26_ejes_h">Ejes temáticos</h3>
+            <ol class="c26-ejes">
+              <li style="--c:#A1D4EF" data-i18n="c26_eje1">Bioquímica, biología celular y molecular</li>
+              <li style="--c:#BECD8E" data-i18n="c26_eje2">Biología vegetal y biotecnología</li>
+              <li style="--c:#EFEBD8" data-i18n="c26_eje3">Biología estructural, bioinformática y modelado computacional</li>
+              <li style="--c:#B2BA84" data-i18n="c26_eje4">Desarrollo y neurociencias</li>
+              <li style="--c:#CCDCA1" data-i18n="c26_eje5">Microbiología</li>
+            </ol>
+          </div>
+
+          <div class="c26-block">
+            <h3 class="c26-h3" data-i18n="c26_prog_h">Qué va a haber</h3>
+            <ul class="c26-prog">
+              <li>
+                <h4 data-i18n="c26_p1_h">Charlas invitadas</h4>
+                <p data-i18n="c26_p1">Jóvenes científicos con trayectorias destacadas y comunicadores de la ciencia.</p>
+              </li>
+              <li>
+                <h4 data-i18n="c26_p2_h">Pósters y charlas cortas</h4>
+                <p data-i18n="c26_p2">Para compartir y discutir nuestros trabajos.</p>
+              </li>
+              <li>
+                <h4 data-i18n="c26_p3_h">Startups y vinculación</h4>
+                <p data-i18n="c26_p3">Un espacio dedicado a startups y vinculación tecnológica.</p>
+              </li>
+              <li>
+                <h4 data-i18n="c26_p4_h">Almuerzos y certificados</h4>
+                <p data-i18n="c26_p4">Los almuerzos de ambas jornadas están cubiertos. Se entregan certificados de participación.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="c26-stats">
+            <div><b>250+</b><span data-i18n="c26_s1">participantes en 2025</span></div>
+            <div><b>7</b><span data-i18n="c26_s2">provincias</span></div>
+            <div><b>50+</b><span data-i18n="c26_s3">instituciones</span></div>
+            <div class="c26-goal"><b>Speakers</b><span data-i18n="c26_s4">los anunciamos pronto</span></div>
+          </div>
+
+          <div class="c26-support">
+            <span class="c26-label" data-i18n="c26_support_label">Con el apoyo de</span>
+            <p class="c26-sponsors"><span>OneLab</span><span>Merck</span><span>MicroLat</span></p>
+            <p class="c26-sponsors-more" data-i18n="c26_support">y otras empresas que hacen posible el congreso.</p>
+          </div>
+        </div>
+      </section>
+
       <!-- Intro + mission -->
       <section class="card" aria-label="Presentación">
         <h2 class="section-title" data-i18n="intro_title">Ciencia joven, colaborativa y federal 🧪</h2>
@@ -411,55 +776,6 @@
           Nuestra misión se basa en una iniciativa inédita que busca consolidar un espacio <strong>propio, horizontal y federal</strong> para investigadores/as en etapas de formación: becarios/as doctorales, posdoctorales, investigadores/as jóvenes y estudiantes avanzados/as de grado de todo el país.
         </p>
       </section>
-
-
-    <section class="card" aria-label="AJI 2026" style="
-      text-align: center;
-      padding: 36px 28px;
-      background: linear-gradient(135deg, rgba(27,58,87,.07), rgba(50,126,69,.07));
-      border: 1.5px solid rgba(27,58,87,.18);
-    ">
-    <h2 class="section-title" style="
-      font-size: clamp(2.2rem, 6vw, 3.4rem);
-      font-weight: 900;
-      color: var(--navy);
-      letter-spacing: -1px;
-      margin: 0 0 6px 0;
-    " data-i18n="aji2026_title">AJI 2026</h2>
-          <p style="
-        font-size: .85rem;
-        font-weight: 700;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        color: var(--green);
-        margin: 0 0 22px 0;
-      " data-i18n="aji2026_soon">Próximamente</p>
-
-      <p class="description" style="max-width: 62ch; margin: 0 auto 18px auto; font-size: 1.05rem;" data-i18n="aji2026_p1">
-        Tras el éxito de la <strong>AJI 2025</strong>, con más de <strong>250 participantes</strong> en su punto máximo,
-        este año volvemos con un equipo más variado y más grande.
-      </p>
-      <p class="description" style="max-width: 60ch; margin: 0 auto 22px auto; color: var(--muted);" data-i18n="aji2026_p2">
-        Estamos trabajando en una edición que <strong>duplica la capacidad</strong> del venue anterior,
-        con charlas en las ramas del año pasado — sumando <strong>Tecnología y Startups</strong>.
-        Muy pronto más información! Para estar al día, no olvides seguirnos en Instagram.
-      </p>
-
-      <div style="
-        display: inline-flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 4px;
-      ">
-        <span style="background:rgba(27,58,87,.10); color:var(--navy); padding:6px 14px; border-radius:999px; font-size:.85rem; font-weight:700;" data-i18n="aji2026_pill1">🔬 Bioquímica, Biología molecular y celular.</span>
-        <span style="background:rgba(27,58,87,.10); color:var(--navy); padding:6px 14px; border-radius:999px; font-size:.85rem; font-weight:700;" data-i18n="aji2026_pill2">🧬 Bioinformatica y Biología Computacional</span>
-        <span style="background:rgba(27,58,87,.10); color:var(--navy); padding:6px 14px; border-radius:999px; font-size:.85rem; font-weight:700;" data-i18n="aji2026_pill3">🌱 Biología vegetal y Biotecnología</span>
-        <span style="background:rgba(27,58,87,.10); color:var(--navy); padding:6px 14px; border-radius:999px; font-size:.85rem; font-weight:700;" data-i18n="aji2026_pill4">🧠 Biología del desarrollo y Neurociencias</span>   
-        <span style="background:rgba(50,126,69,.15); color:var(--green); padding:6px 14px; border-radius:999px; font-size:.85rem; font-weight:700;" data-i18n="aji2026_pill5">💻 Tech & Startups ✨</span>
-      </div>
-    </section>
-
 
 
       <!-- AJI 2025 -->
@@ -499,41 +815,11 @@
           </article>
 
           <article class="team-card secondary">
-            <img class="photo" src="images/Joselina.jpeg" alt="Foto de Joselina Berti" />
-            <div>
-              <h3 class="person">Joselina Berti</h3>
-              <p class="bio" data-i18n="bio_jbert">
-                Miembro del comité científico. Licenciada en Biotecnología (UADE), becaria doctoral CONICET y estudiante de doctorado en el Laboratorio de Genética del Desarrollo Neural (FIL - FCEN UBA).
-              </p>
-            </div>
-          </article>
-
-          <article class="team-card secondary">
-            <img class="photo" src="images/Caterina.JPG" alt="Foto de Caterina Sister" />
-            <div>
-              <h3 class="person">Caterina Sister</h3>
-              <p class="bio" data-i18n="bio_csister">
-                Miembro del comité científico. Licenciada en Biología (FCEN UBA) y actualmente becaria doctoral CONICET en el Laboratorio de Genética del Desarrollo Neural (FIL - FCEN UBA).
-              </p>
-            </div>
-          </article>
-
-          <article class="team-card secondary">
             <img class="photo" src="images/Fran.jpg" alt="Foto de Francisco Corvetto Aristrain" />
             <div>
               <h3 class="person">Francisco Corvetto Aristrain</h3>
               <p class="bio" data-i18n="bio_fcorvetto">
                 Miembro del comité científico. Licenciado en Biología (FCEN UBA) y actualmente becario doctoral en el Laboratorio de Biología Celular del ARN (FCEN UBA).
-              </p>
-            </div>
-          </article>
-
-          <article class="team-card secondary">
-            <img class="photo" src="images/Gobbini.jpeg" alt="Foto de Laura Gobbini" />
-            <div>
-              <h3 class="person">Laura Gobbini</h3>
-              <p class="bio" data-i18n="bio_lgobbini">
-                Miembro del comité científico. Licenciada en Ciencias Biológicas (FCEN UBA). Actualmente estudiante de doctorado en el Laboratorio de Biología Molecular de Plantas (Fundación Instituto Leloir).
               </p>
             </div>
           </article>
@@ -548,22 +834,32 @@
             </div>
           </article>
 
-          <article class="team-card secondary">
-            <img class="photo" src="images/wacu.jpeg" alt="Foto de Facundo Sanchez Trapes" />
-            <div>
-              <h3 class="person">Facundo Sanchez Trapes</h3>
-              <p class="bio" data-i18n="bio_fst">
-                Miembro del comité científico. Licenciado en Biotecnología y Biología Molecular (UNLP), becario Agencia en el Laboratorio de Estudio de Secreción (FCEN UBA) y docente de la UNLP.
-              </p>
-            </div>
-          </article>
-
           <article class="team-card tertiary">
             <img class="photo" src="images/pnuñez.jpeg" alt="Foto de Paula Nuñez" />
             <div>
               <h3 class="person">Paula Nuñez</h3>
               <p class="bio" data-i18n="bio_pnunez">
                 Miembro del comité organizador. Licenciada en Genética (UNaM) y becaria doctoral CONICET en el Laboratorio de Estructura, Función y Plasticidad de Proteínas (IIB-UNSAM).
+              </p>
+            </div>
+          </article>
+
+          <article class="team-card tertiary">
+            <img class="photo" src="images/msol_crop.jpg" alt="Foto de Marisol Cantalupi" />
+            <div>
+              <h3 class="person">Marisol Cantalupi</h3>
+              <p class="bio" data-i18n="bio_mcantalupi">
+                Miembro del comité organizador. Licenciada en Biotecnología y docente en UNSAM, becaria doctoral CONICET en el Laboratorio de Estructura, Función y Plasticidad de Proteínas (IIB-UNSAM).
+              </p>
+            </div>
+          </article>
+
+          <article class="team-card secondary">
+            <img class="photo" src="images/wacu.jpeg" alt="Foto de Facundo Sanchez Trapes" />
+            <div>
+              <h3 class="person">Facundo Sanchez Trapes</h3>
+              <p class="bio" data-i18n="bio_fst">
+                Miembro del comité científico. Licenciado en Biotecnología y Biología Molecular (UNLP), becario Agencia en el Laboratorio de Estudio de Secreción (FCEN UBA) y docente de la UNLP.
               </p>
             </div>
           </article>
@@ -588,7 +884,47 @@
             </div>
           </article>
 
+          <article class="team-card tertiary">
+            <img class="photo" src="images/fgarde.jpeg" alt="Foto de Federico Garde" />
+            <div>
+              <h3 class="person">Federico Garde</h3>
+              <p class="bio" data-i18n="bio_fgarde">
+                Licenciado en Biología (FCEN UBA), becario doctoral CONICET, docente en la FCEN-UBA y estudiante de doctorado en el laboratorio de Diferenciación Celular y Cáncer (IQUIBICEN-CONICET).
+              </p>
+            </div>
+          </article>
 
+          <!--
+          <article class="team-card secondary">
+            <img class="photo" src="images/Joselina.jpeg" alt="Foto de Joselina Berti" />
+            <div>
+              <h3 class="person">Joselina Berti</h3>
+              <p class="bio" data-i18n="bio_jbert">
+                Miembro del comité científico. Licenciada en Biotecnología (UADE), becaria doctoral CONICET y estudiante de doctorado en el Laboratorio de Genética del Desarrollo Neural (FIL - FCEN UBA).
+              </p>
+            </div>
+          </article>
+
+          <article class="team-card secondary">
+            <img class="photo" src="images/Caterina.JPG" alt="Foto de Caterina Sister" />
+            <div>
+              <h3 class="person">Caterina Sister</h3>
+              <p class="bio" data-i18n="bio_csister">
+                Miembro del comité científico. Licenciada en Biología (FCEN UBA) y actualmente becaria doctoral CONICET en el Laboratorio de Genética del Desarrollo Neural (FIL - FCEN UBA).
+              </p>
+            </div>
+          </article>
+
+          <article class="team-card secondary">
+            <img class="photo" src="images/Gobbini.jpeg" alt="Foto de Laura Gobbini" />
+            <div>
+              <h3 class="person">Laura Gobbini</h3>
+              <p class="bio" data-i18n="bio_lgobbini">
+                Miembro del comité científico. Licenciada en Ciencias Biológicas (FCEN UBA). Actualmente estudiante de doctorado en el Laboratorio de Biología Molecular de Plantas (Fundación Instituto Leloir).
+              </p>
+            </div>
+          </article>
+          -->
 
         </div>
       </section>
@@ -680,20 +1016,44 @@
         intro_desc:
           'La <strong>Agrupación de Jóvenes Investigadores (AJI)</strong> es una organización sin fines de lucro que busca generar un espacio de charla, reflexión y discusión para estudiantes de doctorado, postdoctorado e investigadores jóvenes en Argentina, con un formato de reuniones anuales.',
 
+        btn_c26: "Congreso 2026",
+        c26_kicker: "II Congreso · AJI 2026",
+        c26_status: "Inscripción abierta",
+        c26_title: "2º Congreso de Jóvenes Investigadores",
+        c26_month: "diciembre 2026",
+        c26_venue_label: "Sede",
+        c26_lead: "Un congreso organizado por y para jóvenes investigadores: un espacio de encuentro, intercambio y colaboración para estudiantes avanzados, doctorandos, posdoctorandos e investigadores en etapas iniciales de su carrera.",
+        c26_cta: "Inscribirme",
+        c26_more: "Más información",
+        c26_becas: "Podés solicitar beca de inscripción o de movilidad.",
+        c26_photo_cap: "AJI 2025 — primera edición",
+        c26_ejes_h: "Ejes temáticos",
+        c26_eje1: "Bioquímica, biología celular y molecular",
+        c26_eje2: "Biología vegetal y biotecnología",
+        c26_eje3: "Biología estructural, bioinformática y modelado computacional",
+        c26_eje4: "Desarrollo y neurociencias",
+        c26_eje5: "Microbiología",
+        c26_prog_h: "Qué va a haber",
+        c26_p1_h: "Charlas invitadas",
+        c26_p1: "Jóvenes científicos con trayectorias destacadas y comunicadores de la ciencia.",
+        c26_p2_h: "Pósters y charlas cortas",
+        c26_p2: "Para compartir y discutir nuestros trabajos.",
+        c26_p3_h: "Startups y vinculación",
+        c26_p3: "Un espacio dedicado a startups y vinculación tecnológica.",
+        c26_p4_h: "Almuerzos y certificados",
+        c26_p4: "Los almuerzos de ambas jornadas están cubiertos. Se entregan certificados de participación.",
+        c26_s1: "participantes en 2025",
+        c26_s2: "provincias",
+        c26_s3: "instituciones",
+        c26_s4: "los anunciamos pronto",
+        c26_support_label: "Con el apoyo de",
+        c26_support: "y otras empresas que hacen posible el congreso.",
+
         mission_title: "Misión",
         mission_desc:
           'Nuestra misión se basa en una iniciativa inédita que busca consolidar un espacio <strong>propio, horizontal y federal</strong> para investigadores/as en etapas de formación: becarios/as doctorales, posdoctorales, investigadores/as jóvenes y estudiantes avanzados/as de grado de todo el país.',
         
-        aji2026_title: "AJI 2026",
-        aji2026_soon: "Próximamente",
-        aji2026_p1: 'Tras el éxito de la <strong>AJI 2025</strong>, con más de <strong>250 participantes</strong> en su punto máximo, este año volvemos con un equipo más variado y más grande.',
-        aji2026_p2: 'Estamos trabajando en una edición que <strong>duplica la capacidad</strong> del venue anterior, con charlas en las ramas del año pasado — sumando <strong>Tecnología y Startups</strong>. Muy pronto más información! Para estar al día, no olvides seguirnos en Instagram.',
-        aji2026_pill1: "🔬 Bioquímica, Biología molecular y celular.",
-        aji2026_pill2: "🧬 Bioinformática y Biología Computacional",
-        aji2026_pill3: "🌱 Biología vegetal y Biotecnología",
-        aji2026_pill4: "🧠 Biología del desarrollo y Neurociencias",
-        aji2026_pill5: "💻 Tech & Startups ✨",
-                banner_line1: "Conocé más del congreso de la AJI 2025",
+        banner_line1: "Conocé más del congreso de la AJI 2025",
         banner_sub: "Programa, oradores, ejes temáticos y más",
 
         team_title: "Integrantes",
@@ -721,6 +1081,10 @@
           "Miembro del comité organizador. Licenciada en Genética (UNNOBA), becaria doctoral de CONICET y lleva a cabo su tesis doctoral en el Laboratorio de Genética y Genómica Funcional del CENEXA (FCM-UNLP-CONICET).",
         bio_moneto:
         "Miembro del comité organizador. Licencia en Genética (UNaM), becaria doctoral CONICET en el Laboratorio de Terapéutica Experimental en Procesos Neurodegenerativos (INGEBI - CONICET)",
+        bio_mcantalupi:
+          "Miembro del comité organizador. Licenciada en Biotecnología y docente en UNSAM, becaria doctoral CONICET en el Laboratorio de Estructura, Función y Plasticidad de Proteínas (IIB-UNSAM).",
+        bio_fgarde:
+          "Licenciado en Biología (FCEN UBA), becario doctoral CONICET, docente en la FCEN-UBA y estudiante de doctorado en el laboratorio de Diferenciación Celular y Cáncer (IQUIBICEN-CONICET).",
         coc_title: "Código de conducta",
         coc_desc:
           "La AJI se respalda en un código de conducta con especial énfasis en el respeto y el respaldo mutuo.",
@@ -748,20 +1112,44 @@
         intro_desc:
           'The <strong>Young Researchers Association (AJI)</strong> is a non-profit organization that aims to create a space for conversation, reflection, and discussion for PhD students, postdoctoral researchers, and early-career researchers in Argentina, through an annual meeting format.',
 
+        btn_c26: "2026 Congress",
+        c26_kicker: "2nd Congress · AJI 2026",
+        c26_status: "Registration open",
+        c26_title: "2nd Young Researchers Congress",
+        c26_month: "December 2026",
+        c26_venue_label: "Venue",
+        c26_lead: "A congress organized by and for young researchers: a space for meeting, exchange and collaboration for advanced students, PhD students, postdocs and early-career researchers.",
+        c26_cta: "Register",
+        c26_more: "More information",
+        c26_becas: "You can apply for a registration or travel grant.",
+        c26_photo_cap: "AJI 2025 — first edition",
+        c26_ejes_h: "Thematic tracks",
+        c26_eje1: "Biochemistry, cell and molecular biology",
+        c26_eje2: "Plant biology and biotechnology",
+        c26_eje3: "Structural biology, bioinformatics and computational modelling",
+        c26_eje4: "Development and neuroscience",
+        c26_eje5: "Microbiology",
+        c26_prog_h: "What to expect",
+        c26_p1_h: "Invited talks",
+        c26_p1: "Young scientists with outstanding careers and science communicators.",
+        c26_p2_h: "Posters and short talks",
+        c26_p2: "To share and discuss our work.",
+        c26_p3_h: "Startups and tech transfer",
+        c26_p3: "A space dedicated to startups and technology transfer.",
+        c26_p4_h: "Lunch and certificates",
+        c26_p4: "Lunch is covered on both days. Certificates of participation will be issued.",
+        c26_s1: "participants in 2025",
+        c26_s2: "provinces",
+        c26_s3: "institutions",
+        c26_s4: "announced soon",
+        c26_support_label: "Supported by",
+        c26_support: "and other companies that make the congress possible.",
+
         mission_title: "Mission",
         mission_desc:
           'Our mission is based on an unprecedented initiative that seeks to consolidate a <strong>dedicated, horizontal, and federal</strong> space for researchers in training stages: PhD fellows, postdoctoral fellows, early-career researchers, and advanced undergraduate students from across the country.',
 
 
-        aji2026_title: "AJI 2026",
-        aji2026_soon: "Coming soon",
-        aji2026_p1: 'Following the success of <strong>AJI 2025</strong>, with over <strong>250 participants</strong> at its peak, this year we return with a larger and more diverse team.',
-        aji2026_p2: 'We are working on an edition that <strong>doubles the capacity</strong> of the previous venue, with talks across last year\'s tracks — now adding <strong>Tech & Startups</strong>. More info coming soon! Follow us on Instagram to stay up to date.',
-        aji2026_pill1: "🔬 Biochemistry, Molecular & Cell Biology",
-        aji2026_pill2: "🧬 Bioinformatics & Computational Biology",
-        aji2026_pill3: "🌱 Plant Biology & Biotechnology",
-        aji2026_pill4: "🧠 Developmental Biology & Neuroscience",
-        aji2026_pill5: "💻 Tech & Startups ✨",
 
         banner_line1: "Learn more about the AJI 2025 congress",
         banner_sub: "Program, speakers, thematic tracks, and more",
@@ -791,6 +1179,11 @@
           "Member of the organizing committee. Degree in Genetics (UNNOBA), CONICET PhD fellow, and PhD student at the Functional Genetics and Genomics Laboratory (FCM-UNLP-CONICET).",
         bio_moneto:
           "Member of the organizing committee. Degree in Genetics (UNaM), CONICET PhD fellow at the Experimental Therapy in Neurodegenerative Processes Laboratory (INGEBI - CONICET).",
+
+        bio_mcantalupi:
+          "Member of the organizing committee. Degree in Biotechnology and lecturer at UNSAM, CONICET PhD fellow at the Structure, Function, and Plasticity of Proteins Laboratory (IIB-UNSAM).",
+        bio_fgarde:
+          "Degree in Biology (FCEN UBA), CONICET PhD fellow, TA at FCEN-UBA, and PhD student at the Cell Differentiation and Cancer Laboratory (IQUIBICEN-CONICET).",
 
         coc_title: "Code of conduct",
         coc_desc:
